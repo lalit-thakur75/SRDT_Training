@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <title>StyleLane — Fashion, beauty &amp; more</title>
+
+    <meta name="description" content="Find your kind of style, all in one place.">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="top">
+        ✦ THE BIG STYLE EDIT IS HERE
+        <span>— EXTRA 20% OFF YOUR FIRST ORDER</span>
+    </div>
+
+    <header>
+
+        <a class="logo" href="#top">
+            <b>M</b> Myntra<span>2.O</span><i>.</i>
+        </a>
+
+        <button class="menu" id="menu" aria-label="Open menu">
+            ☰
+        </button>
+
+        <nav id="nav">
+
+            <a data-nav="Women" href="#products">WOMEN</a>
+            <a data-nav="Men" href="#products">MEN</a>
+            <a data-nav="Beauty" href="#products">BEAUTY</a>
+            <a data-nav="Home" href="#products">HOME</a>
+            <a href="#categories">NEW IN <sup>NEW</sup></a>
+
+        </nav>
+
+        <label class="search">
+            ⌕
+            <input id="search" placeholder="Search styles, brands & more">
+            <kbd>⌘ K</kbd>
+        </label>
+
+        <div class="actions">
+
+            <button id="profile">
+                ♙
+                <small>Profile</small>
+            </button>
+
+            <button id="wishShort">
+                ♡
+                <small>Wishlist</small>
+            </button>
+
+            <button id="bagShort">
+                ♧
+                <b id="count">0</b>
+                <small>Bag</small>
+            </button>
+
+        </div>
+
+    </header>
+
+    <main id="top">
+
+        <section class="hero">
+
+            <div class="copy">
+
+                <small class="eyebrow">
+                    ✦ YOUR NEXT FAVOURITE LOOK
+                </small>
+
+                <h1>
+                    Wear the<br>
+                    <em>good</em> feeling.
+                </h1>
+
+                <p>
+                    Little wardrobe refresh? Big main-character energy?
+                    Find your kind of style, all in one place.
+                </p>
+
+                <a class="button" href="#products">
+                    Explore the edit <b>↗</b>
+                </a>
+
+                <div class="note">
+                    ✳ Made for your every day.
+                </div>
+
+            </div>
+
+            <div class="hero-img">
+
+                <img
+                    src="images/hero-style.svg"
+                    alt="Illustration of a seasonal fashion look"
+                >
+
+                <span class="sticker">
+                    NEW<br>
+                    <small>SEASON MOOD</small>
+                </span>
+
+                <small class="caption">
+                    THE SOFT STRUCTURE EDIT　 ·　 01 / 04
+                </small>
+
+            </div>
+
+        </section>
+
+        <div class="benefits">
+
+            <span>✦ Trend-first finds</span>
+            <span>↺ Easy 14-day returns</span>
+            <span>♡ Something for everyone</span>
+            <span>✉ Free shipping over ₹999</span>
+
+        </div>
+
+        <section class="section" id="categories">
+
+            <div class="heading">
+
+                <div>
+
+                    <small class="eyebrow">
+                        A LITTLE BIT OF EVERYTHING
+                    </small>
+
+                    <h2>
+                        Find your <em>thing.</em>
+                    </h2>
+
+                </div>
+
+                <a href="#products">
+                    Browse all categories ↗
+                </a>
+
+            </div>
+
+            <div class="categories">
+
+                <button data-category="Women">
+
+                    <img src="images/category-women.svg" alt="">
+
+                    <small>01 / THE EVERYDAY EDIT</small>
+
+                    <strong>For her ↗</strong>
+
+                </button>
+
+                <button data-category="Men">
+
+                    <img src="images/category-men.svg" alt="">
+
+                    <small>02 / THE GOOD-FIT CLUB</small>
+
+                    <strong>For him ↗</strong>
+
+                </button>
+
+                <button data-category="Beauty">
+
+                    <img src="images/category-beauty.svg" alt="">
+
+                    <small>03 / GLOW YOUR WAY</small>
+
+                    <strong>Beauty ↗</strong>
+
+                </button>
+
+                <button data-category="Home">
+
+                    <img src="images/category-home.svg" alt="">
+
+                    <small>04 / YOUR HAPPY PLACE</small>
+
+                    <strong>Home ↗</strong>
+
+                </button>
+
+            </div>
+
+        </section>
+
+        <section class="section products" id="products">
+
+            <div class="heading">
+
+                <div>
+
+                    <small class="eyebrow">
+                        THE GOOD STUFF
+                    </small>
+
+                    <h2>
+                        Currently <em>crushing on.</em>
+                    </h2>
+
+                </div>
+
+            </div>
+
+            <div class="filters">
+
+                <button class="active" data-filter="All">
+                    Everything
+                </button>
+
+                <button data-filter="Women">
+                    Women
+                </button>
+
+                <button data-filter="Men">
+                    Men
+                </button>
+
+                <button data-filter="Beauty">
+                    Beauty
+                </button>
+
+                <button data-filter="Home">
+                    Home
+                </button>
+
+            </div>
+
+            <p id="results">
+                A few things we think you'll love.
+            </p>
+
+            <div id="grid" class="grid"></div>
+
+            <div id="empty" hidden>
+
+                <h3>No matches just yet</h3>
+
+                <p>
+                    Try another search or explore everything.
+                </p>
+
+                <button class="button" id="clear">
+                    Show me everything ↗
+                </button>
+
+            </div>
+
+        </section>
+
+        <section class="newsletter">
+
+            <div>
+
+                <small class="eyebrow">
+                    THE GOOD NEWS LETTER
+                </small>
+
+                <h2>
+                    Good things land<br>
+                    in your inbox.
+                </h2>
+
+                <p>
+                    New drops, fresh finds and 10% off your first order.
+                    No noise, promise.
+                </p>
+
+            </div>
+
+            <form id="signup">
+
+                <label for="email">
+                    Your email address
+                </label>
+
+                <div>
+
+                    <input
+                        id="email"
+                        type="email"
+                        placeholder="you@example.com"
+                        required
+                    >
+
+                    <button>↗</button>
+
+                </div>
+
+                <small id="message">
+                    The occasional good thing, straight to your inbox.
+                </small>
+
+            </form>
+
+        </section>
+
+    </main>
+
+    <footer>
+
+        <a class="logo" href="#top">
+            <b>M</b> Myntra<span>2.O</span><i>.</i>
+        </a>
+
+        <p>
+            Good style. Good mood. Every day.
+        </p>
+
+        <small>
+            © 2025 Myntra2.O
+        </small>
+
+    </footer>
+
+    <div class="toast" id="toast" role="status"></div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
