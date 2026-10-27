@@ -1,0 +1,95 @@
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f3f6fb;
+    color: #26334d;
+    margin: 0;
+}
+
+header {
+    background-color: #192953;
+    color: white;
+    padding: 20px 6%;
+}
+
+header p {
+    color: #cbd5e1;
+}
+
+nav {
+    background-color: white;
+    padding: 16px 6%;
+    border-bottom: 1px solid #dddddd;
+}
+
+nav a {
+    color: #192953;
+    text-decoration: none;
+    margin-right: 25px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #2563eb;
+}
+
+main {
+    margin: 30px 6%;
+}
+
+section {
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 25px;
+    border: 1px solid #e0e5ed;
+    border-radius: 10px;
+}
+
+h2 {
+    color: #192953;
+}
+
+h3 {
+    color: #334d8c;
+}
+
+.highlight {
+    color: #2563eb;
+    font-weight: bold;
+}
+
+.card {
+    background-color: #f8faff;
+    padding: 12px;
+    margin: 8px;
+    border: 1px solid #e0e5ed;
+    border-radius: 8px;
+    display: inline-block;
+    vertical-align: top;
+    box-sizing: border-box;
+    width: 30%;
+}
+
+#trainings .card {
+    width: 46%;
+    padding: 18px;
+    border-top: 3px solid #2864f0;
+}
+
+#trainings .card + .card {
+    border-top-color: #8245e8;
+}
+
+#sessions .card,
+#assignments .card {
+    width: auto;
+    display: block;
+    margin: 8px 0;
+}
+
+footer {
+    background-color: #192953;
+    color: white;
+    padding: 15px;
+    text-align: center;
+}
