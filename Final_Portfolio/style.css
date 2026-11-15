@@ -1,0 +1,168 @@
+/* General Page Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f7fb;
+    color: #222222;
+    margin: 20px;
+    line-height: 1.6;
+}
+
+header {
+    text-align: center;
+    background-color: #17324d;
+    color: #ffffff;
+    padding: 15px 10px;
+}
+
+header h1 {
+    margin: 0;
+}
+
+h2 {
+    color: #17324d;
+    border-bottom: 2px solid #d7e0ea;
+    padding-bottom: 5px;
+    margin-top: 25px;
+}
+
+a {
+    color: #075bb5;
+}
+
+/* Profile Section */
+.separator {
+    border: none;
+    height: 3px;
+    background-color: #000000;
+    margin: 15px 0;
+}
+
+.profile-section {
+    text-align: center;
+    padding: 10px 0;
+}
+
+.profile-img {
+    width: 150px;
+    height: auto;
+    border-radius: 30%;
+    display: inline-block;
+}
+
+.profile-name {
+    color: #075bb5;
+    border-bottom: none;
+    margin-top: 10px;
+}
+
+/* Links & Badges */
+.school-link {
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.school-link:hover,
+.certificate-link:hover {
+    text-decoration: underline;
+}
+
+.certificate-link {
+    display: inline-block;
+    margin: 5px 10px 5px 0;
+    padding: 7px 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 5px;
+    background-color: #ffffff;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+/* Table Styling */
+.table-container {
+    margin: 15px 0;
+    overflow-x: auto;
+}
+
+table {
+    border-collapse: collapse;
+    background-color: #ffffff;
+    width: 60%;
+    min-width: 320px;
+    border: 1px solid #cbd5e1;
+}
+
+caption {
+    font-weight: bold;
+    text-align: left;
+    margin-bottom: 8px;
+    color: #17324d;
+}
+
+th, td {
+    border: 1px solid #cbd5e1;
+    padding: 8px 12px;
+    text-align: left;
+}
+
+th {
+    background-color: #e2e8f0;
+}
+
+/* Form Styling */
+.student-form {
+    max-width: 400px;
+    background-color: #ffffff;
+    padding: 15px 20px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    margin-top: 10px;
+}
+
+.student-form label {
+    display: block;
+    margin-top: 12px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.student-form input,
+.student-form select {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.student-form button {
+    display: inline-block;
+    margin-top: 16px;
+    padding: 8px 18px;
+    background-color: #17324d;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.student-form button:hover {
+    background-color: #075bb5;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    background-color: #17324d;
+    color: #ffffff;
+    padding: 10px;
+    margin-top: 30px;
+}
+
+footer p {
+    margin: 0;
+    font-size: 14px;
+}
