@@ -1,15 +1,20 @@
-STYLELANE — BEGINNER FASHION HOMEPAGE
+﻿TRENDORA â€” MODERN FASHION E-COMMERCE (MYNTRA-INSPIRED)
 
-GET STARTED
-1. Unzip the folder named "myntra clone".
-2. Open index.html in a browser (double-click it).
+HOW TO RUN:
+1. Double-click `index.html` to open directly in any modern web browser.
+2. No Node.js, build step, or external web framework required. Pure Vanilla HTML, CSS, and JavaScript.
 
-FILES
-- index.html: page structure and content
-- style.css: colors, layout and responsive styling
-- script.js: products, search, filters, wishlist and bag interactions
-- images/: original local SVG illustrations used by the page
+FEATURES:
+- Responsive Myntra-style retail shopping layout
+- Sticky header with Categories, Search with live filtering, Profile dropdown, Wishlist, and Cart
+- Real fashion product imagery (all stored locally in `image/`)
+- Hero promotional banner carousel with manual controls & auto-slide
+- Quick-shop circular category collection
+- Real-time search filter and sorting (Price Low-to-High, High-to-Low, Discount, Rating)
+- Slide-over Shopping Bag drawer with quantity adjustment, live price calculation, and checkout simulator
+- Working coupon discount code: `TREND500` (Flat â‚¹500 off on orders >= â‚¹1,999)
+- Wishlist drawer with one-click "Move to Bag"
+- Quick View modal with size selector and pincode delivery check
+- Persistent storage using LocalStorage
+- Clean, human-crafted vanilla code (HTML5 + CSS3 + ES6 JS)
 
-No build step or web connection is needed. All illustrations are local and the page uses system font fallbacks.
-
-To customize products, edit the products list near the top of script.js. Keep image files in images/ and update each product's image filename there.
