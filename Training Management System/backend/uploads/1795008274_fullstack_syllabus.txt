@@ -1,0 +1,3 @@
+Module 1: HTML & CSS
+Module 2: JavaScript
+Module 3: FastAPI & PostgreSQL

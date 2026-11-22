@@ -1,180 +1,571 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Training Management System</title>
-
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f6fa;
-            color: #26334d;
-            margin: 0;
-        }
-
-        header {
-            background-color: #172554;
-            color: white;
-            padding: 25px 30px;
-        }
-
-        header p {
-            color: #cbd5e1;
-        }
-
-        nav {
-            background-color: white;
-            padding: 16px 30px;
-            border-bottom: 1px solid #dddddd;
-        }
-
-        nav a {
-            color: #172554;
-            text-decoration: none;
-            margin-right: 22px;
-        }
-
-        main {
-            margin: 25px 30px;
-        }
-
-        section {
-            background-color: white;
-            padding: 20px;
-            margin-bottom: 22px;
-            border: 1px solid #e0e5ed;
-        }
-
-        h2 {
-            color: #172554;
-        }
-
-        h3 {
-            color: #334d8c;
-        }
-
-        .highlight {
-            color: #2563eb;
-            font-weight: bold;
-        }
-
-        .card {
-            background-color: #f8faff;
-            padding: 12px;
-            margin: 10px 0;
-            border: 1px solid #e0e5ed;
-        }
-
-        footer {
-            background-color: #172554;
-            color: white;
-            padding: 15px;
-            text-align: center;
-        }
-    </style>
+    <!-- Connected to unified stylesheet -->
+    <link rel="stylesheet" href="colour.css">
 </head>
 
 <body>
 
+    <!-- Header Section -->
     <header>
-        <p>✦ TRAINING PORTAL</p>
-        <h1>Training Management System</h1>
-        <p>One platform to organise learning, sessions and assignments.</p>
+        <div class="header-brand">
+            <span class="header-badge">✦ Official Training Portal</span>
+            <h1>Training Management System</h1>
+            <p>One platform to organize learning, class schedules, assignments & study materials.</p>
+        </div>
+
+        <div class="header-actions">
+            <div id="header-user-display" class="user-pill" style="display: none;"></div>
+            <div id="header-auth-buttons">
+                <!-- Dynamically populated by app.js -->
+                <button class="btn btn-outline-white btn-sm" onclick="openModal('modal-login')">Login</button>
+                <button class="btn btn-primary btn-sm" onclick="openModal('modal-register')">Student Sign Up</button>
+            </div>
+        </div>
     </header>
 
+    <!-- Navigation Bar -->
     <nav>
-        <a href="#home">⌂ Dashboard</a>
-        <a href="#trainings">▣ Trainings</a>
-        <a href="#sessions">◷ Sessions</a>
-        <a href="#assignments">☑ Assignments</a>
+        <div class="nav-links">
+            <a href="javascript:void(0)" id="nav-home" class="active" onclick="switchTab('home')">⌂ Dashboard</a>
+            <a href="javascript:void(0)" id="nav-schedules" onclick="switchTab('schedules')">🗓️ Class Schedules</a>
+            <a href="javascript:void(0)" id="nav-materials" onclick="switchTab('materials')">📚 Syllabus & Notes</a>
+            <a href="javascript:void(0)" id="nav-student-tab" style="display: none;" onclick="switchTab('student')">👨‍🎓 Student Portal</a>
+            <a href="javascript:void(0)" id="nav-trainer-tab" style="display: none;" onclick="switchTab('trainer')">👨‍🏫 Trainer Portal</a>
+            <a href="javascript:void(0)" id="nav-admin-tab" style="display: none;" onclick="switchTab('admin')">🛡️ Admin Portal</a>
+        </div>
+
+        <div class="system-status">
+            <span id="system-status-dot" class="status-dot"></span>
+            <span id="system-status-text">Connecting...</span>
+        </div>
     </nav>
 
+    <!-- Main Content Area -->
     <main>
 
-        <section id="home">
-            <p class="highlight">WELCOME BACK 👋</p>
-            <h2>Training Dashboard</h2>
-            <p>
-                Manage your weekly training sessions, assignments
-                and learning activities in one place.
-            </p>
-        </section>
-
-        <section>
-            <h2>📊 Program Overview</h2>
-
-            <div class="card">
-                <p>Total Training Tracks</p>
-                <h2 class="highlight">02</h2>
-            </div>
-
-            <div class="card">
-                <p>Total Planned Sessions</p>
-                <h2 class="highlight">10</h2>
-            </div>
-
-            <div class="card">
-                <p>Training Duration</p>
-                <h2 class="highlight">10 Weeks</h2>
-            </div>
-        </section>
-
-        <section id="trainings">
-            <h2>📚 Training Programs</h2>
-            <p>Explore the two learning tracks in this program.</p>
-
-            <div class="card">
-                <h3>💻 01. Full Stack Development</h3>
-                <p>
-                    Learn website development, frontend technologies
-                    and backend fundamentals.
+        <!-- 1. HOME / DASHBOARD TAB -->
+        <div id="section-home" class="tab-content">
+            <section id="home">
+                <span class="badge badge-track" style="margin-bottom: 8px;">WELCOME BACK 👋</span>
+                <h2>Training Portal Overview</h2>
+                <p class="section-desc">
+                    Comprehensive training dashboard tracking both technical learning tracks, upcoming live sessions,
+                    verified trainee enrollments and curriculum downloads.
                 </p>
-                <p><strong>Focus:</strong> HTML, CSS, JavaScript and Web Development</p>
+            </section>
+
+            <!-- Metrics Overview -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <p>Total Tracks</p>
+                    <h3 id="stat-tracks">02</h3>
+                </div>
+                <div class="stat-card">
+                    <p>Total Scheduled Classes</p>
+                    <h3 id="stat-sessions">02</h3>
+                </div>
+                <div class="stat-card">
+                    <p>Verified Trainees</p>
+                    <h3 id="stat-students">00</h3>
+                </div>
+                <div class="stat-card">
+                    <p>Study Materials</p>
+                    <h3 id="stat-materials">00</h3>
+                </div>
             </div>
 
-            <div class="card">
-                <h3>🤖 02. Artificial Intelligence</h3>
-                <p>
-                    Explore AI concepts, API integration and practical
-                    AI-powered applications.
-                </p>
-                <p><strong>Focus:</strong> AI Tools, APIs and AI Projects</p>
-            </div>
-        </section>
+            <!-- Training Programs Tracks -->
+            <section id="trainings">
+                <div class="section-header">
+                    <div>
+                        <h2>📚 Training Programs & Tracks</h2>
+                        <p class="section-desc">Active specialized learning paths with dual delivery (Online & Offline).</p>
+                    </div>
+                </div>
 
-        <section id="sessions">
-            <h2>🗓️ Weekly Training Sessions</h2>
+                <div id="tracks-container" class="tracks-grid">
+                    <!-- Populated dynamically by app.js -->
+                </div>
+            </section>
+        </div>
 
-            <div class="card">
-                <p><strong>Program:</strong> 10 Weekly Sessions</p>
-                <p><strong>☀️ First Half:</strong> Full Stack Development</p>
-                <p><strong>🌙 Second Half:</strong> Artificial Intelligence</p>
-            </div>
-        </section>
+        <!-- 2. CLASS SCHEDULES TAB -->
+        <div id="section-schedules" class="tab-content" style="display: none;">
+            <section>
+                <div class="section-header">
+                    <div>
+                        <h2>🗓️ Class Schedules & Sessions</h2>
+                        <p class="section-desc">Explore upcoming training sessions, Google Meet links, and offline campus classrooms.</p>
+                    </div>
+                    <div>
+                        <button id="btn-add-schedule-trigger" class="btn btn-primary" style="display: none;" onclick="openAddScheduleModal()">
+                            + Add New Session
+                        </button>
+                    </div>
+                </div>
 
-        <section id="assignments">
-            <h2>📝 Assignment Management</h2>
+                <!-- Schedule Filter Controls -->
+                <div class="filter-bar">
+                    <label style="font-weight: 600; font-size: 0.88rem; color: var(--text-main);">Filter By:</label>
+                    <select id="filter-track-select">
+                        <option value="">All Tracks</option>
+                    </select>
+                    <select id="filter-mode-select">
+                        <option value="">All Modes</option>
+                        <option value="online">🌐 Online (Google Meet)</option>
+                        <option value="offline">🏫 Offline (Campus Room)</option>
+                    </select>
+                </div>
 
-            <p>
-                Keep assignment records organised and make it easier
-                to identify submitted and pending work.
-            </p>
+                <!-- Schedule Cards List -->
+                <div id="schedules-list-container" class="schedules-container">
+                    <!-- Populated dynamically by app.js -->
+                </div>
+            </section>
+        </div>
 
-            <div class="card">
-                <p>✅ Submitted Assignments</p>
-                <p>⏳ Pending Assignments</p>
-                <p class="highlight">Planned Feature: Assignment Tracking</p>
-            </div>
-        </section>
+        <!-- 3. MATERIALS TAB -->
+        <div id="section-materials" class="tab-content" style="display: none;">
+            <section>
+                <div class="section-header">
+                    <div>
+                        <h2>📚 Syllabus & Notes Repository</h2>
+                        <p class="section-desc">Download authentic track syllabi, handouts, and trainer lecture notes.</p>
+                    </div>
+                    <div>
+                        <button class="btn btn-primary" onclick="openModal('modal-upload-material')">
+                            + Upload Material
+                        </button>
+                    </div>
+                </div>
+
+                <div id="materials-list-container">
+                    <!-- Populated dynamically by app.js -->
+                </div>
+            </section>
+        </div>
+
+        <!-- 4. STUDENT PORTAL TAB -->
+        <div id="section-student" class="tab-content" style="display: none;">
+            <section>
+                <div class="section-header">
+                    <div>
+                        <h2>👨‍🎓 Trainee Student Portal</h2>
+                        <p class="section-desc">Your verified account details, enrolled track, and personal session links.</p>
+                    </div>
+                    <span class="badge badge-upcoming">VERIFIED ENROLLMENT</span>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <p>Student Name</p>
+                        <h3 id="student-profile-name" style="font-size: 1.3rem;">-</h3>
+                    </div>
+                    <div class="stat-card">
+                        <p>Verified Roll No</p>
+                        <h3 id="student-profile-roll" style="font-size: 1.3rem;">-</h3>
+                    </div>
+                    <div class="stat-card">
+                        <p>Enrolled Track</p>
+                        <h3 id="student-profile-track" style="font-size: 1.3rem;">-</h3>
+                    </div>
+                </div>
+
+                <div style="background: #f8fafc; border: 1px dashed var(--border-color); border-radius: var(--radius); padding: 20px; text-align: center; margin-top: 15px;">
+                    <p style="margin: 0; font-size: 0.95rem; color: var(--text-main);">
+                        💡 <strong>Security Note:</strong> You are authenticated via your institution Roll Number.
+                        Check the <a href="javascript:void(0)" onclick="switchTab('schedules')" style="color: var(--accent); font-weight: 600;">Class Schedules</a> tab to join live classes or see campus lab numbers.
+                    </p>
+                </div>
+            </section>
+        </div>
+
+        <!-- 5. TRAINER PORTAL TAB -->
+        <div id="section-trainer" class="tab-content" style="display: none;">
+            <section>
+                <div class="section-header">
+                    <div>
+                        <h2>👨‍🏫 Trainer Workspace</h2>
+                        <p class="section-desc">Upload course materials, manage syllabus, and view verified enrolled trainees.</p>
+                    </div>
+                    <button class="btn btn-primary" onclick="openModal('modal-upload-material')">
+                        + Upload Syllabus / Notes
+                    </button>
+                </div>
+
+                <div class="stats-grid" style="margin-bottom: 24px;">
+                    <div class="stat-card">
+                        <p>Trainer Name</p>
+                        <h3 id="trainer-profile-name" style="font-size: 1.3rem;">-</h3>
+                    </div>
+                    <div class="stat-card">
+                        <p>Assigned Track</p>
+                        <h3 id="trainer-profile-track" style="font-size: 1.3rem;">-</h3>
+                    </div>
+                </div>
+
+                <h3 style="color: var(--primary); margin-bottom: 12px;">👥 Enrolled Trainees List</h3>
+                <div class="data-table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Roll Number</th>
+                                <th>Student Name</th>
+                                <th>Email</th>
+                                <th>Track</th>
+                                <th>Registration Date</th>
+                            </tr>
+                        </thead>
+                        <tbody id="admin-students-table-body">
+                            <!-- Populated dynamically by app.js -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+
+        <!-- 6. ADMIN PORTAL TAB -->
+        <div id="section-admin" class="tab-content" style="display: none;">
+            <section>
+                <div class="section-header">
+                    <div>
+                        <h2>🛡️ Super Administrator Control Center</h2>
+                        <p class="section-desc">Full control: schedule management, trainer provisioning, roll number whitelisting, and batch reset.</p>
+                    </div>
+                    <div style="display: flex; gap: 8px;">
+                        <button class="btn btn-primary btn-sm" onclick="openModal('modal-add-eligible')">+ Whitelist Roll No</button>
+                        <button class="btn btn-secondary btn-sm" onclick="openModal('modal-add-trainer')">+ Add Trainer</button>
+                        <button class="btn btn-danger btn-sm" onclick="openModal('modal-clear-data')">⚠️ Reset Batch Data</button>
+                    </div>
+                </div>
+
+                <!-- Sub-Section: Pre-approved Roll Numbers -->
+                <h3 style="color: var(--primary); margin-top: 10px; margin-bottom: 10px;">📋 Pre-Approved Student Whitelist (Registration Gatekeeper)</h3>
+                <p class="section-desc" style="margin-bottom: 12px;">Only students possessing these verified Roll Numbers can create an account and access training.</p>
+                <div class="data-table-container" style="margin-bottom: 30px;">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Roll No</th>
+                                <th>Authorized Email</th>
+                                <th>Student Name</th>
+                                <th>Track</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="admin-eligible-table-body">
+                            <!-- Populated dynamically by app.js -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Sub-Section: Trainers List -->
+                <h3 style="color: var(--primary); margin-bottom: 10px;">👨‍🏫 Authorized Trainers</h3>
+                <div class="data-table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Trainer Name</th>
+                                <th>Email</th>
+                                <th>Assigned Track</th>
+                                <th>Created At</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="admin-trainers-table-body">
+                            <!-- Populated dynamically by app.js -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
 
     </main>
 
+    <!-- Footer -->
     <footer>
-        <p>Training Management System | 2026</p>
-        <p>Organise Training. Track Progress. Simplify Learning.</p>
+        <p><strong>Training Management System (TMS)</strong> | Secure & Scalable Architecture</p>
+        <p>Built with FastAPI (Python) &bull; PostgreSQL Database &bull; Vanilla HTML, CSS & JavaScript</p>
     </footer>
+
+    <!-- ==========================================
+         MODALS
+         ========================================== -->
+
+    <!-- 1. LOGIN MODAL -->
+    <div id="modal-login" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Portal Sign In</h3>
+                <button class="modal-close" onclick="closeModal('modal-login')">&times;</button>
+            </div>
+            <form id="login-form">
+                <div class="modal-body">
+                    <div style="background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 6px; padding: 10px 12px; margin-bottom: 16px; font-size: 0.84rem;">
+                        <strong>Quick Fill Demo Accounts:</strong><br>
+                        <a href="javascript:void(0)" onclick="fillDemoLogin('admin')" style="color: var(--accent); font-weight: 600; margin-right: 12px;">👤 Admin (admin@tms.com)</a>
+                        <a href="javascript:void(0)" onclick="fillDemoLogin('trainer')" style="color: var(--accent); font-weight: 600;">👨‍🏫 Trainer (trainer@tms.com)</a>
+                    </div>
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email" id="login-email" required placeholder="name@domain.com">
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" id="login-password" required placeholder="••••••••">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal('modal-login')">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Sign In</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- 2. STUDENT REGISTRATION MODAL (With Roll No Gatekeeper) -->
+    <div id="modal-register" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Student Registration</h3>
+                <button class="modal-close" onclick="closeModal('modal-register')">&times;</button>
+            </div>
+            <form id="register-form">
+                <div class="modal-body">
+                    <div style="background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 6px; padding: 10px 12px; margin-bottom: 14px; font-size: 0.83rem; color: #166534;">
+                        🛡️ <strong>Verification Gatekeeper:</strong> Only pre-approved Roll Numbers (e.g. <code>FS2026-01</code>, <code>AI2026-02</code>) can register.
+                    </div>
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input type="text" id="reg-name" required placeholder="Your Full Name">
+                    </div>
+                    <div class="form-group">
+                        <label>Verified Roll Number</label>
+                        <input type="text" id="reg-rollno" required placeholder="e.g. FS2026-01">
+                        <small>Provided by course administration.</small>
+                    </div>
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email" id="reg-email" required placeholder="student@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label>Create Password</label>
+                        <input type="password" id="reg-password" required minlength="6" placeholder="At least 6 characters">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal('modal-register')">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Verify & Register</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- 3. ADD / EDIT SCHEDULE MODAL -->
+    <div id="modal-schedule" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="schedule-modal-title">Schedule Training Session</h3>
+                <button class="modal-close" onclick="closeModal('modal-schedule')">&times;</button>
+            </div>
+            <form id="schedule-form">
+                <input type="hidden" id="schedule-id-input">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>Training Track</label>
+                        <select id="schedule-track-select" required></select>
+                    </div>
+                    <div class="form-group">
+                        <label>Session Title / Topic</label>
+                        <input type="text" id="schedule-title-input" required placeholder="e.g. Session 03: PostgreSQL Schema Design">
+                    </div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                        <div class="form-group">
+                            <label>Date</label>
+                            <input type="date" id="schedule-date-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Timing</label>
+                            <input type="text" id="schedule-time-input" required placeholder="10:00 AM - 12:30 PM">
+                        </div>
+                    </div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                        <div class="form-group">
+                            <label>Delivery Mode</label>
+                            <select id="schedule-mode-select">
+                                <option value="online">🌐 Online (Meeting Link)</option>
+                                <option value="offline">🏫 Offline (Campus Room)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Status</label>
+                            <select id="schedule-status-select">
+                                <option value="upcoming">Upcoming</option>
+                                <option value="completed">Completed</option>
+                                <option value="cancelled">Cancelled</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group" id="group-meeting-link">
+                        <label>Google Meet / Zoom URL</label>
+                        <input type="url" id="schedule-link-input" placeholder="https://meet.google.com/xyz-abcd-efg">
+                    </div>
+                    <div class="form-group" id="group-classroom" style="display: none;">
+                        <label>Classroom / Lab Location</label>
+                        <input type="text" id="schedule-classroom-input" placeholder="e.g. Lab 4, Tech Block (2nd Floor)">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal('modal-schedule')">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Save Session</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- 4. UPLOAD MATERIAL MODAL -->
+    <div id="modal-upload-material" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Upload Syllabus or Notes</h3>
+                <button class="modal-close" onclick="closeModal('modal-upload-material')">&times;</button>
+            </div>
+            <form id="material-upload-form">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>Document Title</label>
+                        <input type="text" id="material-title-input" required placeholder="e.g. Week 1 HTML & CSS Complete Handout">
+                    </div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                        <div class="form-group">
+                            <label>Track</label>
+                            <select id="material-track-select" required></select>
+                        </div>
+                        <div class="form-group">
+                            <label>Document Type</label>
+                            <select id="material-type-select">
+                                <option value="syllabus">Syllabus</option>
+                                <option value="notes">Lecture Notes</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Select PDF / Document File</label>
+                        <input type="file" id="material-file-input" required accept=".pdf,.doc,.docx,.zip,.txt">
+                        <small>File metadata will be saved in DB; document saved securely on disk.</small>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal('modal-upload-material')">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Upload Document</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- 5. ADD TRAINER MODAL -->
+    <div id="modal-add-trainer" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add New Course Trainer</h3>
+                <button class="modal-close" onclick="closeModal('modal-add-trainer')">&times;</button>
+            </div>
+            <form id="add-trainer-form">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>Trainer Full Name</label>
+                        <input type="text" id="trainer-name-input" required placeholder="e.g. Prof. Ananya Sharma">
+                    </div>
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email" id="trainer-email-input" required placeholder="trainer@domain.com">
+                    </div>
+                    <div class="form-group">
+                        <label>Assign Track</label>
+                        <select id="trainer-track-select" required></select>
+                    </div>
+                    <div class="form-group">
+                        <label>Temporary Password</label>
+                        <input type="password" id="trainer-password-input" required minlength="6" placeholder="••••••••">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal('modal-add-trainer')">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Create Trainer</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- 6. WHITELIST ROLL NUMBER MODAL -->
+    <div id="modal-add-eligible" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Whitelist Student Roll Number</h3>
+                <button class="modal-close" onclick="closeModal('modal-add-eligible')">&times;</button>
+            </div>
+            <form id="add-eligible-form">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>Roll Number</label>
+                        <input type="text" id="eligible-rollno-input" required placeholder="e.g. FS2026-05">
+                    </div>
+                    <div class="form-group">
+                        <label>Student Email</label>
+                        <input type="email" id="eligible-email-input" required placeholder="student@university.edu">
+                    </div>
+                    <div class="form-group">
+                        <label>Student Name (Optional)</label>
+                        <input type="text" id="eligible-name-input" placeholder="e.g. Sandeep Verma">
+                    </div>
+                    <div class="form-group">
+                        <label>Allowed Track</label>
+                        <select id="eligible-track-select" required></select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal('modal-add-eligible')">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Whitelist Roll No</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- 7. RESET / CLEAR DATA MODAL -->
+    <div id="modal-clear-data" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color: var(--danger-bg); border-bottom-color: #fecaca;">
+                <h3 style="color: var(--danger);">⚠️ Confirm Batch Data Reset</h3>
+                <button class="modal-close" onclick="closeModal('modal-clear-data')">&times;</button>
+            </div>
+            <form id="clear-data-form">
+                <div class="modal-body">
+                    <p style="color: #991b1b; font-size: 0.9rem; margin-top: 0;">
+                        <strong>Warning:</strong> This action will delete all session schedules, uploaded syllabus/notes files, and registered student accounts to reset for a new batch. Admin and Track configurations will be preserved.
+                    </p>
+                    <div class="form-group">
+                        <label>Enter Admin Password to Confirm</label>
+                        <input type="password" id="clear-admin-password" required placeholder="Admin password">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal('modal-clear-data')">Cancel</button>
+                    <button type="submit" class="btn btn-danger">Confirm Reset</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Toast Container -->
+    <div id="toast-container"></div>
+
+    <!-- Connected to Frontend Logic -->
+    <script src="app.js"></script>
 
 </body>
 </html>
