@@ -1,31 +1,51 @@
 /* ==========================================================================
-   TRENDORA — E-COMMERCE STYLESHEET (MYNTRA-INSPIRED CLEAN RETAIL UI)
+   TRENDORA — AUTHENTIC MYNTRA WOMEN'S STORE E-COMMERCE STYLESHEET
+   Pure CSS3 demonstrating Modern Flexbox & CSS Grid with Clean, Explainable Code
    ========================================================================== */
 
+/* --------------------------------------------------------------------------
+   MYNTRA DESIGN TOKENS & COLOR PALETTE
+   -------------------------------------------------------------------------- */
 :root {
-    --primary: #ff3f6c;            /* Myntra signature vibrant coral/pink */
-    --primary-hover: #e02f5a;
-    --primary-light: #fff1f4;
-    --dark: #282c3f;               /* High-contrast brand typography */
-    --text-muted: #696e79;         /* Subtitles and secondary info */
-    --text-light: #94969f;
-    --border-color: #eaeaec;       /* Clean subtle border */
-    --border-light: #f5f5f6;
-    --bg-page: #ffffff;
-    --bg-subtle: #f9f9fa;
-    --green-discount: #03a685;     /* Retail offer & savings green */
-    --rating-star: #ff905a;
+    /* Myntra Signature Brand Colors */
+    --primary: #ff3f6c;             /* Signature Vibrant Coral-Pink */
+    --primary-hover: #e02f5a;       /* Darker Coral-Pink Hover */
+    --primary-light: #fff1f4;       /* Ultra-soft Pink Tint */
+    --accent-orange: #ff905a;       /* Discount Orange Tag */
+    
+    /* Clean High-Contrast Typography & Surfaces */
+    --dark: #282c3f;                /* Myntra Signature Charcoal Heading */
+    --text-muted: #535766;          /* Muted Secondary Descriptions */
+    --text-light: #94969f;          /* Light Meta / Inactive Grey */
+    
+    --bg-page: #ffffff;             /* Crisp Clean White Canvas */
+    --bg-card: #ffffff;             /* Card White Surface */
+    --bg-subtle: #f5f5f6;           /* Subtle Light-Grey Tint */
+    
+    --border-color: #eaeaec;        /* Subtle Clean Border */
+    --border-light: #f5f5f6;        /* Section Divider */
+    
+    /* Retail Offer & Savings Green */
+    --green-discount: #03a685;      /* Myntra Savings Green */
+    --rating-star: #03a685;         /* Green Rating Star */
+    
+    /* Elevation & Shadows */
     --shadow-sm: 0 1px 4px rgba(40, 44, 63, 0.08);
-    --shadow-md: 0 4px 16px rgba(40, 44, 63, 0.1);
-    --shadow-lg: 0 12px 30px rgba(40, 44, 63, 0.14);
-    --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --shadow-md: 0 4px 16px rgba(40, 44, 63, 0.12);
+    --shadow-lg: 0 12px 30px rgba(40, 44, 63, 0.16);
+    --shadow-hover: 0 4px 18px rgba(40, 44, 63, 0.14);
+
+    /* Typography & Radii */
+    --font-family: 'Assistant', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     --radius-sm: 4px;
     --radius-md: 8px;
     --radius-lg: 12px;
+    --radius-full: 9999px;
+    
     --transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
-/* Base reset & typography */
+/* Base Reset */
 *, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
@@ -62,26 +82,40 @@ input, select {
 }
 
 /* ==========================================================================
-   1. TOP ANNOUNCEMENT BAR
+   1. [CSS FLEXBOX] TOP ANNOUNCEMENT BAR
+   Horizontal centering of festival offers and discount coupon code
    ========================================================================== */
 .top-announcement {
     background: #1e2029;
     color: #f5f5f6;
     font-size: 11px;
-    font-weight: 500;
+    font-weight: 600;
     letter-spacing: 0.5px;
-    padding: 7px 16px;
+    padding: 8px 16px;
     text-align: center;
     position: relative;
     z-index: 50;
 }
 
 .announcement-content {
+    /* [FLEXBOX] Align festival alert elements horizontally */
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 14px;
     flex-wrap: wrap;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.announcement-badge {
+    background: var(--primary);
+    color: #ffffff;
+    font-size: 9px;
+    font-weight: 800;
+    padding: 2px 7px;
+    border-radius: var(--radius-sm);
+    letter-spacing: 0.5px;
 }
 
 .announcement-content b {
@@ -93,7 +127,8 @@ input, select {
 }
 
 /* ==========================================================================
-   2. MAIN HEADER & NAVIGATION
+   2. [CSS FLEXBOX] MAIN STICKY HEADER & NAVBAR
+   Flexbox used for Logo, Nav items, Search bar, and Profile/Wishlist/Bag icons
    ========================================================================== */
 .main-header {
     position: sticky;
@@ -102,7 +137,8 @@ input, select {
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--border-color);
     z-index: 100;
-    height: 76px;
+    height: 78px;
+    /* [FLEXBOX] Vertical centering of header */
     display: flex;
     align-items: center;
     box-shadow: var(--shadow-sm);
@@ -112,29 +148,33 @@ input, select {
     max-width: 1400px;
     width: 100%;
     margin: 0 auto;
-    padding: 0 24px;
+    padding: 0 28px;
+    /* [FLEXBOX] Header horizontal distribution */
     display: flex;
     align-items: center;
     gap: 28px;
 }
 
-/* Brand Logo */
+/* Brand Logo (Trendora with Myntra-style vibrant gradient mark) */
 .brand-logo {
+    /* [FLEXBOX] Logo icon and text alignment */
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
     text-decoration: none;
     user-select: none;
+    flex-shrink: 0;
 }
 
 .logo-mark {
     background: linear-gradient(135deg, #ff3f6c 0%, #ff527b 100%);
     color: #ffffff;
-    font-size: 20px;
+    font-size: 22px;
     font-weight: 900;
-    width: 36px;
-    height: 36px;
+    width: 38px;
+    height: 38px;
     border-radius: var(--radius-sm);
+    /* [FLEXBOX] Center letter 'T' */
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -142,26 +182,28 @@ input, select {
 }
 
 .logo-text {
-    font-size: 21px;
+    font-size: 22px;
     font-weight: 800;
     letter-spacing: 1.5px;
     color: var(--dark);
 }
 
-/* Navigation items */
+/* [CSS FLEXBOX] Navigation category links */
 .nav-links {
+    /* [FLEXBOX] Horizontal list of department links */
     display: flex;
     align-items: center;
-    gap: 22px;
-    height: 76px;
+    gap: 24px;
+    height: 78px;
 }
 
 .nav-item {
-    font-size: 13px;
+    font-size: 13.5px;
     font-weight: 700;
     letter-spacing: 0.3px;
     color: var(--dark);
     height: 100%;
+    /* [FLEXBOX] Link content centering */
     display: flex;
     align-items: center;
     position: relative;
@@ -173,6 +215,7 @@ input, select {
     color: var(--primary);
 }
 
+/* Signature Myntra bottom active indicator */
 .nav-item::after {
     content: '';
     position: absolute;
@@ -198,20 +241,21 @@ input, select {
     background: var(--primary);
     color: #ffffff;
     font-size: 9px;
-    font-weight: 700;
+    font-weight: 800;
     padding: 1px 5px;
-    border-radius: 8px;
+    border-radius: var(--radius-sm);
     margin-left: 4px;
     vertical-align: super;
 }
 
-/* Search Box */
+/* [CSS FLEXBOX] Wide Light-Grey Search Box */
 .search-box {
     flex: 1;
     max-width: 440px;
     height: 42px;
-    background: #f5f5f6;
+    background: var(--bg-subtle);
     border-radius: var(--radius-sm);
+    /* [FLEXBOX] Align search icon, input, and clear button */
     display: flex;
     align-items: center;
     padding: 0 14px;
@@ -265,8 +309,9 @@ input, select {
     flex-shrink: 0;
 }
 
-/* Action items (Profile, Wishlist, Bag) */
+/* [CSS FLEXBOX] Header Actions (Profile, Wishlist, Bag) */
 .header-actions {
+    /* [FLEXBOX] Horizontal action icons */
     display: flex;
     align-items: center;
     gap: 24px;
@@ -274,6 +319,7 @@ input, select {
 }
 
 .action-btn {
+    /* [FLEXBOX] Vertical stack for SVG icon and label */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -296,6 +342,7 @@ input, select {
 
 .icon-wrap {
     position: relative;
+    /* [FLEXBOX] Center icon */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -311,7 +358,8 @@ input, select {
     font-weight: 800;
     min-width: 17px;
     height: 17px;
-    border-radius: 50%;
+    border-radius: var(--radius-full);
+    /* [FLEXBOX] Center badge number */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -327,12 +375,12 @@ input, select {
     position: absolute;
     top: calc(100% + 12px);
     right: -20px;
-    width: 260px;
+    width: 270px;
     background: #ffffff;
     border-radius: var(--radius-sm);
     box-shadow: var(--shadow-lg);
     border: 1px solid var(--border-color);
-    padding: 16px;
+    padding: 18px;
     opacity: 0;
     visibility: hidden;
     transform: translateY(8px);
@@ -405,7 +453,7 @@ input, select {
 }
 
 /* ==========================================================================
-   3. HERO CAROUSEL SECTION
+   3. HERO CAROUSEL SECTION (MYNTRA FASHION BANNER)
    ========================================================================== */
 .hero-section {
     position: relative;
@@ -428,6 +476,7 @@ input, select {
     inset: 0;
     opacity: 0;
     transition: opacity 0.6s ease-in-out;
+    /* [FLEXBOX] Align hero caption */
     display: flex;
     align-items: center;
 }
@@ -443,7 +492,7 @@ input, select {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center top;
+    object-position: center 25%;
 }
 
 .hero-overlay {
@@ -465,12 +514,12 @@ input, select {
     background: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(8px);
     border: 1px solid rgba(255, 255, 255, 0.3);
-    color: #ffffff;
+    color: #ffd15c;
     font-size: 11px;
     font-weight: 800;
     letter-spacing: 1.2px;
     padding: 5px 12px;
-    border-radius: 20px;
+    border-radius: var(--radius-full);
     margin-bottom: 14px;
 }
 
@@ -485,13 +534,15 @@ input, select {
 
 .hero-subtitle {
     font-size: 14px;
-    font-weight: 500;
+    font-weight: 600;
     letter-spacing: 0.8px;
     color: #e0e2ec;
     margin-bottom: 24px;
 }
 
+/* [CSS FLEXBOX] Hero Call-to-Actions */
 .hero-cta-group {
+    /* [FLEXBOX] Align button and code tag */
     display: flex;
     align-items: center;
     gap: 16px;
@@ -506,6 +557,7 @@ input, select {
     letter-spacing: 0.8px;
     padding: 13px 28px;
     border-radius: var(--radius-sm);
+    /* [FLEXBOX] Center primary button contents */
     display: inline-flex;
     align-items: center;
     gap: 6px;
@@ -554,6 +606,7 @@ input, select {
     border-radius: 50%;
     color: var(--dark);
     font-size: 26px;
+    /* [FLEXBOX] Center arrow chevron */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -576,11 +629,13 @@ input, select {
     right: 40px;
 }
 
+/* [CSS FLEXBOX] Slider Dots */
 .slider-dots {
     position: absolute;
     bottom: 18px;
     left: 50%;
     transform: translateX(-50%);
+    /* [FLEXBOX] Horizontal dots */
     display: flex;
     gap: 8px;
     z-index: 10;
@@ -589,7 +644,7 @@ input, select {
 .dot {
     width: 10px;
     height: 10px;
-    border-radius: 50%;
+    border-radius: var(--radius-full);
     background: rgba(255, 255, 255, 0.4);
     cursor: pointer;
     transition: var(--transition);
@@ -598,16 +653,17 @@ input, select {
 .dot.active {
     background: #ffffff;
     width: 26px;
-    border-radius: 6px;
 }
 
 /* ==========================================================================
-   4. BANK & TRUST STRIP
+   4. [CSS GRID] BANK & TRUST ASSURANCE STRIP
+   4-column responsive CSS Grid for assurance highlights
    ========================================================================== */
 .trust-strip {
     max-width: 1400px;
     margin: 24px auto 0;
     padding: 0 24px;
+    /* [CSS GRID] 4 columns */
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 16px;
@@ -618,6 +674,7 @@ input, select {
     border: 1px solid var(--border-color);
     border-radius: var(--radius-sm);
     padding: 14px 18px;
+    /* [CSS FLEXBOX] Align icon and text */
     display: flex;
     align-items: center;
     gap: 14px;
@@ -647,7 +704,75 @@ input, select {
 }
 
 /* ==========================================================================
-   5. CATEGORY SECTION
+   5. [CSS GRID] MEDAL WORTHY BRANDS / CRAZY DEALS
+   6-column responsive CSS Grid with bold bottom offer strips
+   ========================================================================== */
+.deals-section {
+    max-width: 1400px;
+    margin: 36px auto;
+    padding: 0 24px;
+}
+
+.deals-grid {
+    /* [CSS GRID] 6-column deals cards */
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 16px;
+}
+
+.deal-card {
+    background: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    cursor: pointer;
+    transition: var(--transition);
+    /* [FLEXBOX] Stack content and offer banner */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: var(--shadow-sm);
+}
+
+.deal-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--primary);
+}
+
+.deal-header {
+    padding: 18px 14px 16px;
+    text-align: center;
+}
+
+.brand-title {
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--dark);
+    display: block;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+}
+
+.deal-desc {
+    font-size: 11px;
+    color: var(--text-muted);
+}
+
+.deal-offer-strip {
+    background: #fff0f3;
+    color: var(--primary);
+    font-size: 11px;
+    font-weight: 800;
+    padding: 8px 10px;
+    text-align: center;
+    letter-spacing: 0.5px;
+    border-top: 1px dashed rgba(255, 63, 108, 0.3);
+}
+
+/* ==========================================================================
+   6. [CSS GRID] FEATURED CATEGORIES SECTION
+   Multi-column responsive grid with authentic fashion category imagery
    ========================================================================== */
 .section {
     max-width: 1400px;
@@ -662,7 +787,7 @@ input, select {
 .title {
     font-size: 20px;
     font-weight: 800;
-    letter-spacing: 1px;
+    letter-spacing: 1.2px;
     color: var(--dark);
     text-transform: uppercase;
 }
@@ -673,10 +798,12 @@ input, select {
     margin-top: 4px;
 }
 
+/* [CSS GRID] 7-Column Responsive Category Grid */
 .category-grid {
+    /* [CSS GRID] 7 equal columns on desktop */
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 18px;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 16px;
 }
 
 .category-card {
@@ -688,6 +815,9 @@ input, select {
     cursor: pointer;
     transition: var(--transition);
     user-select: none;
+    /* [FLEXBOX] Stack image, title, and offer */
+    display: flex;
+    flex-direction: column;
 }
 
 .category-card:hover {
@@ -730,13 +860,17 @@ input, select {
 }
 
 /* ==========================================================================
-   6. PRODUCTS CATALOG SECTION & MYNTRA-STYLE CARDS
+   7. MAIN PRODUCTS CATALOG SECTION
+   [CSS FLEXBOX] for header, chips, card interior
+   [CSS GRID] for responsive 4-column product catalog
    ========================================================================== */
 .products-section {
     margin-top: 50px;
 }
 
+/* [CSS FLEXBOX] Section Header */
 .products-header {
+    /* [FLEXBOX] Align title and sorting select */
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -746,6 +880,7 @@ input, select {
 }
 
 .header-left {
+    /* [FLEXBOX] Align title and count badge */
     display: flex;
     align-items: baseline;
     gap: 12px;
@@ -757,7 +892,9 @@ input, select {
     font-weight: 500;
 }
 
+/* [CSS FLEXBOX] Sorting Controls */
 .controls-right {
+    /* [FLEXBOX] Align sort label and select */
     display: flex;
     align-items: center;
     gap: 10px;
@@ -786,8 +923,9 @@ input, select {
     border-color: var(--dark);
 }
 
-/* Filter chips */
+/* [CSS FLEXBOX] Filter Chips */
 .filter-chips {
+    /* [FLEXBOX] Horizontal scrollable chip bar */
     display: flex;
     gap: 10px;
     margin-bottom: 24px;
@@ -818,14 +956,18 @@ input, select {
     border-color: var(--dark);
 }
 
-/* Product Grid */
+/* ==========================================================================
+   [CSS GRID] MAIN PRODUCT CATALOG GRID
+   Responsive 4-column desktop grid with gap
+   ========================================================================== */
 .product-grid {
+    /* [CSS GRID] 4 columns */
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 24px;
 }
 
-/* Myntra-Style Product Card */
+/* [CSS FLEXBOX] Myntra-Style Product Card */
 .product-card {
     background: #ffffff;
     border: 1px solid transparent;
@@ -833,12 +975,13 @@ input, select {
     position: relative;
     transition: box-shadow 0.25s ease, transform 0.25s ease;
     cursor: pointer;
+    /* [FLEXBOX] Card vertical stack */
     display: flex;
     flex-direction: column;
 }
 
 .product-card:hover {
-    box-shadow: 0 4px 18px rgba(40, 44, 63, 0.12);
+    box-shadow: var(--shadow-hover);
     border-color: var(--border-light);
 }
 
@@ -864,21 +1007,22 @@ input, select {
     transform: scale(1.05);
 }
 
-/* Rating Badge (bottom-left of image) */
+/* [CSS FLEXBOX] Rating Badge on bottom-left of image */
 .rating-pill {
     position: absolute;
     bottom: 10px;
     left: 10px;
-    background: rgba(255, 255, 255, 0.92);
+    background: rgba(255, 255, 255, 0.94);
     backdrop-filter: blur(4px);
-    padding: 3px 7px;
+    padding: 3px 8px;
     border-radius: 2px;
     font-size: 11px;
     font-weight: 700;
     color: var(--dark);
+    /* [FLEXBOX] Align rating star and count */
     display: inline-flex;
     align-items: center;
-    gap: 3px;
+    gap: 4px;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
     z-index: 2;
 }
@@ -891,12 +1035,12 @@ input, select {
 .rating-count {
     color: var(--text-muted);
     font-size: 10px;
-    margin-left: 3px;
+    margin-left: 2px;
     border-left: 1px solid #d4d5d9;
     padding-left: 4px;
 }
 
-/* Wishlist Heart Icon (top-right of image) */
+/* Top-Right Wishlist Heart Button */
 .wishlist-icon-btn {
     position: absolute;
     top: 10px;
@@ -905,6 +1049,7 @@ input, select {
     height: 34px;
     border-radius: 50%;
     background: rgba(255, 255, 255, 0.9);
+    /* [FLEXBOX] Center heart icon */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -927,7 +1072,7 @@ input, select {
     fill: var(--primary);
 }
 
-/* Product Tag Pill (top-left) */
+/* Top-Left Category / Sale Badge */
 .tag-badge {
     position: absolute;
     top: 10px;
@@ -942,11 +1087,15 @@ input, select {
     z-index: 2;
 }
 
-/* Card Information Box */
+/* [CSS FLEXBOX] Card Information Box */
 .card-details {
     padding: 12px 10px 14px;
     background: #ffffff;
     position: relative;
+    /* [FLEXBOX] Stack details */
+    display: flex;
+    flex-direction: column;
+    flex: 1;
 }
 
 .card-brand {
@@ -968,7 +1117,9 @@ input, select {
     margin-bottom: 6px;
 }
 
+/* [CSS FLEXBOX] Pricing Row */
 .card-price-row {
+    /* [FLEXBOX] Align selling price, MRP, and discount percentage */
     display: flex;
     align-items: baseline;
     gap: 7px;
@@ -990,12 +1141,13 @@ input, select {
 .discount-percent {
     font-size: 12px;
     font-weight: 700;
-    color: var(--primary);
+    color: var(--accent-orange);
 }
 
-/* Size options & Action on hover */
+/* [CSS FLEXBOX] Size options & Hover Action */
 .card-hover-actions {
     margin-top: 8px;
+    /* [FLEXBOX] Stack sizes row and Add to Bag button */
     display: flex;
     flex-direction: column;
     gap: 6px;
@@ -1004,9 +1156,11 @@ input, select {
 .sizes-row {
     font-size: 11px;
     color: var(--text-muted);
+    /* [FLEXBOX] Align size pills */
     display: flex;
     align-items: center;
     gap: 4px;
+    flex-wrap: wrap;
 }
 
 .size-pill {
@@ -1028,6 +1182,7 @@ input, select {
     padding: 8px 0;
     border-radius: var(--radius-sm);
     transition: var(--transition);
+    /* [FLEXBOX] Center add to bag button contents */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1068,7 +1223,7 @@ input, select {
 }
 
 /* ==========================================================================
-   7. VALUE PROMO STRIP
+   8. VALUE PROPOSITION STRIP
    ========================================================================== */
 .promo-strip {
     max-width: 1400px;
@@ -1124,7 +1279,8 @@ input, select {
 }
 
 /* ==========================================================================
-   8. FOOTER
+   9. [CSS GRID + FLEXBOX] MAIN FOOTER
+   4-column responsive CSS Grid for links & Flexbox for footer bottom
    ========================================================================== */
 .main-footer {
     background: #fbfbfb;
@@ -1137,6 +1293,7 @@ input, select {
     max-width: 1400px;
     margin: 0 auto;
     padding: 0 24px 40px;
+    /* [CSS GRID] 4 columns */
     display: grid;
     grid-template-columns: 1.5fr 1fr 1fr 1.3fr;
     gap: 40px;
@@ -1149,7 +1306,9 @@ input, select {
     line-height: 1.6;
 }
 
+/* [CSS FLEXBOX] Social Links */
 .social-links {
+    /* [FLEXBOX] Horizontal badges */
     display: flex;
     gap: 14px;
     font-size: 12px;
@@ -1190,7 +1349,9 @@ input, select {
     margin-bottom: 14px;
 }
 
+/* [CSS FLEXBOX] Download Badges */
 .download-badges {
+    /* [FLEXBOX] Align buttons */
     display: flex;
     gap: 10px;
     margin-bottom: 16px;
@@ -1220,13 +1381,14 @@ input, select {
     color: #12724f;
 }
 
+/* [CSS FLEXBOX] Footer Bottom Bar */
 .footer-bottom {
     background: #ffffff;
     border-top: 1px solid var(--border-color);
     padding: 18px 24px;
-    text-align: center;
     font-size: 12px;
     color: var(--text-light);
+    /* [FLEXBOX] Space copyright and notes across opposing sides */
     display: flex;
     justify-content: space-between;
     max-width: 1400px;
@@ -1234,7 +1396,7 @@ input, select {
 }
 
 /* ==========================================================================
-   9. SLIDE-OVER DRAWERS (CART & WISHLIST)
+   10. [CSS FLEXBOX] SLIDE-OVER DRAWERS (CART & WISHLIST)
    ========================================================================== */
 .drawer-backdrop,
 .modal-backdrop {
@@ -1265,6 +1427,7 @@ input, select {
     z-index: 1010;
     transform: translateX(100%);
     transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+    /* [FLEXBOX] Drawer layout */
     display: flex;
     flex-direction: column;
     box-shadow: -6px 0 24px rgba(0, 0, 0, 0.15);
@@ -1274,15 +1437,18 @@ input, select {
     transform: translateX(0);
 }
 
+/* [CSS FLEXBOX] Drawer Header */
 .drawer-header {
     padding: 18px 20px;
     border-bottom: 1px solid var(--border-color);
+    /* [FLEXBOX] Align title and close button */
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
 .drawer-title {
+    /* [FLEXBOX] Align title and item count */
     display: flex;
     align-items: baseline;
     gap: 8px;
@@ -1306,6 +1472,7 @@ input, select {
     width: 32px;
     height: 32px;
     border-radius: 50%;
+    /* [FLEXBOX] Center cross */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1324,8 +1491,9 @@ input, select {
     padding: 16px 20px;
 }
 
-/* Cart Item Card */
+/* [CSS FLEXBOX] Cart Item Card */
 .cart-item {
+    /* [FLEXBOX] Product thumb on left, details on right */
     display: flex;
     gap: 14px;
     padding: 14px 0;
@@ -1350,6 +1518,7 @@ input, select {
 
 .cart-item-info {
     flex: 1;
+    /* [FLEXBOX] Stack info and quantity control */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -1375,6 +1544,7 @@ input, select {
 }
 
 .cart-item-price {
+    /* [FLEXBOX] Price row */
     display: flex;
     align-items: baseline;
     gap: 6px;
@@ -1382,6 +1552,7 @@ input, select {
 }
 
 .cart-qty-row {
+    /* [FLEXBOX] Align quantity buttons */
     display: flex;
     align-items: center;
     gap: 8px;
@@ -1389,6 +1560,7 @@ input, select {
 }
 
 .qty-control {
+    /* [FLEXBOX] Center plus, minus, and number */
     display: flex;
     align-items: center;
     border: 1px solid var(--border-color);
@@ -1398,6 +1570,7 @@ input, select {
 .qty-btn {
     width: 24px;
     height: 24px;
+    /* [FLEXBOX] Center symbol */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1447,6 +1620,7 @@ input, select {
 }
 
 .coupon-input-group {
+    /* [FLEXBOX] Coupon input & button */
     display: flex;
     gap: 8px;
 }
@@ -1476,6 +1650,7 @@ input, select {
 }
 
 .applied-coupon-tag {
+    /* [FLEXBOX] Tag and close button */
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -1490,7 +1665,7 @@ input, select {
 
 .applied-coupon-tag button {
     font-size: 12px;
-    color: #03a685;
+    color: var(--green-discount);
     font-weight: bold;
 }
 
@@ -1503,6 +1678,7 @@ input, select {
 }
 
 .bill-row {
+    /* [FLEXBOX] Line item price distribution */
     display: flex;
     justify-content: space-between;
     font-size: 12px;
@@ -1546,7 +1722,7 @@ input, select {
 }
 
 /* ==========================================================================
-   10. QUICK VIEW & CONFIRMATION MODALS
+   11. [CSS GRID + FLEXBOX] QUICK VIEW & CONFIRMATION MODALS
    ========================================================================== */
 .quickview-modal {
     position: fixed;
@@ -1578,7 +1754,9 @@ input, select {
     z-index: 10;
 }
 
+/* [CSS GRID] 2-Column Quick View Layout */
 .quickview-body {
+    /* [CSS GRID] Left image, right details */
     display: grid;
     grid-template-columns: 1fr 1.2fr;
     max-height: 85vh;
@@ -1598,6 +1776,7 @@ input, select {
 
 .qv-info {
     padding: 30px;
+    /* [FLEXBOX] Stack info */
     display: flex;
     flex-direction: column;
 }
@@ -1615,7 +1794,9 @@ input, select {
     margin-bottom: 12px;
 }
 
+/* [CSS FLEXBOX] Price Box */
 .qv-price-box {
+    /* [FLEXBOX] Align prices */
     display: flex;
     align-items: baseline;
     gap: 10px;
@@ -1648,7 +1829,9 @@ input, select {
     margin-bottom: 8px;
 }
 
+/* [CSS FLEXBOX] Size Selector */
 .qv-size-selector {
+    /* [FLEXBOX] Align round size buttons */
     display: flex;
     gap: 10px;
     margin-bottom: 20px;
@@ -1716,6 +1899,7 @@ input, select {
     background: #eefbf4;
     color: var(--green-discount);
     border-radius: 50%;
+    /* [FLEXBOX] Center checkmark */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1748,9 +1932,7 @@ input, select {
     margin-bottom: 20px;
 }
 
-/* ==========================================================================
-   11. TOAST NOTIFICATION SNACKBAR
-   ========================================================================== */
+/* Toast Snackbar */
 .toast-snackbar {
     position: fixed;
     bottom: 24px;
@@ -1766,6 +1948,7 @@ input, select {
     z-index: 2000;
     transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
     white-space: nowrap;
+    /* [FLEXBOX] Center toast contents */
     display: flex;
     align-items: center;
     gap: 8px;
@@ -1776,10 +1959,17 @@ input, select {
 }
 
 /* ==========================================================================
-   12. RESPONSIVE DESIGN (TABLET & MOBILE)
+   12. [CSS GRID & FLEXBOX] RESPONSIVE BREAKPOINTS (TABLET & MOBILE)
    ========================================================================== */
+
+/* TABLET VIEW */
 @media (max-width: 1024px) {
+    /* [CSS GRID] 3 columns for category and product grids */
     .category-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .deals-grid {
         grid-template-columns: repeat(3, 1fr);
     }
 
@@ -1787,15 +1977,18 @@ input, select {
         grid-template-columns: repeat(3, 1fr);
     }
 
+    /* [CSS GRID] 2 columns for trust strip */
     .trust-strip {
         grid-template-columns: repeat(2, 1fr);
     }
 
+    /* [CSS GRID] 2 columns for footer */
     .footer-container {
         grid-template-columns: 1fr 1fr;
     }
 }
 
+/* MOBILE VIEW */
 @media (max-width: 768px) {
     .top-announcement {
         font-size: 10px;
@@ -1819,6 +2012,7 @@ input, select {
         display: block;
     }
 
+    /* [CSS FLEXBOX] Mobile Drawer Navigation */
     .nav-links {
         position: fixed;
         top: 64px;
@@ -1852,7 +2046,7 @@ input, select {
     }
 
     .search-box {
-        display: none; /* Can be opened via floating or header toggle */
+        display: none;
     }
 
     .hero-slider {
@@ -1877,8 +2071,14 @@ input, select {
         display: none;
     }
 
+    /* [CSS GRID] 1 column for trust strip */
     .trust-strip {
         grid-template-columns: 1fr;
+    }
+
+    /* [CSS GRID] 2 columns for deals, categories, and products */
+    .deals-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .category-grid {
@@ -1890,6 +2090,7 @@ input, select {
         gap: 14px;
     }
 
+    /* [CSS GRID] 1 column for quickview modal */
     .quickview-body {
         grid-template-columns: 1fr;
     }
@@ -1898,6 +2099,7 @@ input, select {
         max-height: 280px;
     }
 
+    /* [CSS GRID] 1 column for footer */
     .footer-container {
         grid-template-columns: 1fr;
         gap: 26px;

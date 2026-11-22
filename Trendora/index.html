@@ -1,29 +1,38 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trendora â€” Online Shopping for Men, Women, Footwear & Beauty</title>
-    <meta name="description" content="Shop the latest fashion trends at Trendora. Best offers on Men, Women, Footwear, Watches, and Beauty products with fast delivery & easy returns.">
+    <title>Trendora — Online Shopping for Men, Women, Footwear & Beauty</title>
+    <meta name="description" content="Shop the latest fashion trends at Trendora. Best offers on Men's Wear, Women's Ethnic & Western Wear, Footwear, Watches, and Beauty products with fast delivery & easy returns.">
+    <!-- Clean Myntra-style typography font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- TOP ANNOUNCEMENT BAR -->
+    <!-- ==========================================================================
+         [CSS FLEXBOX] TOP ANNOUNCEMENT / FESTIVAL BAR
+         ========================================================================== -->
     <div class="top-announcement">
         <div class="announcement-content">
-            <span>ðŸŽ‰ TRENDORA GRAND FASHION FESTIVAL: FLAT 50% - 80% OFF</span>
+            <span class="announcement-badge">FASHION CARNIVAL</span>
+            <span>🎉 TRENDORA GRAND FASHION FESTIVAL: FLAT 50% - 80% OFF ON MEN &amp; WOMEN</span>
             <span class="sep">|</span>
-            <span>Use Code <b>TREND500</b> for Extra â‚¹500 OFF on orders above â‚¹1,999</span>
+            <span>Use Code <b>TREND500</b> for Extra ₹500 OFF on orders above ₹1,999</span>
             <span class="sep">|</span>
-            <span>ðŸšš FREE Delivery on All Prepaid Orders</span>
+            <span>⚡ FREE Delivery on All Prepaid Orders &amp; 14-Day Returns</span>
         </div>
     </div>
 
-    <!-- MAIN HEADER -->
+    <!-- ==========================================================================
+         [CSS FLEXBOX] STICKY MAIN HEADER & NAVBAR
+         ========================================================================== -->
     <header class="main-header" id="top">
         <div class="header-container">
-            <!-- Mobile Menu Toggle -->
+            <!-- Mobile Menu Toggle Button -->
             <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Navigation Menu">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <line x1="3" y1="12" x2="21" y2="12"></line>
@@ -32,13 +41,13 @@
                 </svg>
             </button>
 
-            <!-- Brand Logo -->
+            <!-- Brand Logo (Trendora with Myntra-style vibrant gradient mark) -->
             <a href="#top" class="brand-logo">
                 <span class="logo-mark">T</span>
                 <span class="logo-text">TRENDORA</span>
             </a>
 
-            <!-- Navigation Links -->
+            <!-- [CSS FLEXBOX] Category Navigation Links (Men, Women, Footwear, etc.) -->
             <nav class="nav-links" id="mainNav">
                 <a href="#products" class="nav-item active" data-category="All">ALL</a>
                 <a href="#products" class="nav-item" data-category="Men">MEN</a>
@@ -46,23 +55,23 @@
                 <a href="#products" class="nav-item" data-category="Footwear">FOOTWEAR</a>
                 <a href="#products" class="nav-item" data-category="Accessories">ACCESSORIES</a>
                 <a href="#products" class="nav-item" data-category="Beauty">BEAUTY</a>
-                <a href="#offers" class="nav-item highlight-nav">OFFERS <span class="nav-tag">NEW</span></a>
+                <a href="#offers" class="nav-item highlight-nav">STUDIO <span class="nav-tag">NEW</span></a>
             </nav>
 
-            <!-- Search Bar -->
+            <!-- [CSS FLEXBOX] Wide Light-Grey Search Bar -->
             <div class="search-box">
                 <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <circle cx="11" cy="11" r="8"></circle>
                     <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
                 </svg>
                 <input type="text" id="searchInput" placeholder="Search for products, brands and more" autocomplete="off">
-                <button class="search-clear-btn" id="searchClearBtn" aria-label="Clear search">âœ•</button>
+                <button class="search-clear-btn" id="searchClearBtn" aria-label="Clear search">✕</button>
                 <div class="search-kbd-hint">Ctrl K</div>
             </div>
 
-            <!-- Action Controls (Profile, Wishlist, Bag) -->
+            <!-- [CSS FLEXBOX] Action Controls: Profile, Wishlist, Bag -->
             <div class="header-actions">
-                <!-- Profile with dropdown -->
+                <!-- Profile Action with Dropdown -->
                 <div class="action-item profile-action" id="profileDropdownTrigger">
                     <button class="action-btn" aria-label="Account">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
@@ -75,17 +84,17 @@
                         <div class="dropdown-header">
                             <h4>Welcome to Trendora</h4>
                             <p>To access your wishlist and orders</p>
-                            <button class="btn-primary-sm" onclick="showToast('Login system ready for customer demo!')">LOGIN / SIGN UP</button>
+                            <button class="btn-primary-sm" onclick="showToast('Customer login modal ready!')">LOGIN / SIGN UP</button>
                         </div>
                         <ul class="dropdown-list">
                             <li><a href="#wishlist" id="openWishlistFromMenu">My Wishlist</a></li>
-                            <li><a href="#orders" onclick="showToast('No recent orders yet')">Orders & Returns</a></li>
-                            <li><a href="#contact" onclick="showToast('Customer Care: 1800-TRENDORA')">Help & Support</a></li>
+                            <li><a href="#orders" onclick="showToast('No recent orders yet')">Orders &amp; Returns</a></li>
+                            <li><a href="#contact" onclick="showToast('Customer Care: 1800-TRENDORA')">Help &amp; Support</a></li>
                         </ul>
                     </div>
                 </div>
 
-                <!-- Wishlist -->
+                <!-- Wishlist Action -->
                 <button class="action-item action-btn" id="wishlistBtn" aria-label="View Wishlist">
                     <div class="icon-wrap">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
@@ -96,7 +105,7 @@
                     <span class="action-label">Wishlist</span>
                 </button>
 
-                <!-- Bag / Cart -->
+                <!-- Shopping Bag Action -->
                 <button class="action-item action-btn" id="cartBtn" aria-label="View Shopping Bag">
                     <div class="icon-wrap">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
@@ -113,90 +122,158 @@
     </header>
 
     <main>
-        <!-- HERO BANNER CAROUSEL -->
+        <!-- ==========================================================================
+             HERO PROMOTIONAL CAROUSEL BANNER (MYNTRA FASHION STORE STYLE)
+             ========================================================================== -->
         <section class="hero-section" id="offers">
             <div class="hero-slider" id="heroSlider">
-                <!-- Slide 1 -->
+                <!-- Slide 1: Grand Festive Ethnic Collection -->
                 <div class="hero-slide active">
                     <img src="image/banner-hero-1.jpg" alt="Trendora Festive Season Sale" class="hero-bg-img">
                     <div class="hero-overlay"></div>
                     <div class="hero-caption">
-                        <span class="hero-pill">EXCLUSIVE EDIT 2026</span>
-                        <h1 class="hero-title">BIG FASHION<br>FESTIVAL</h1>
-                        <p class="hero-subtitle">50 - 80% OFF ON 10,000+ TOP FASHION BRANDS</p>
+                        <span class="hero-pill">GRAND FASHION FESTIVAL</span>
+                        <h1 class="hero-title">BIGGEST DEALS<br>ON FASHION</h1>
+                        <p class="hero-subtitle">50 - 80% OFF ON 10,000+ TOP FASHION BRANDS FOR MEN &amp; WOMEN</p>
+                        <!-- [CSS FLEXBOX] Hero Call-to-Actions -->
                         <div class="hero-cta-group">
-                            <a href="#products" class="btn-primary" data-category="All">EXPLORE DEALS â†’</a>
-                            <span class="hero-code-tag">Use Code: <b>TREND500</b></span>
+                            <a href="#products" class="btn-primary" data-category="All">EXPLORE DEALS →</a>
+                            <span class="hero-code-tag">Use Code: <b>TREND500</b> for ₹500 Off</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Slide 2 -->
+                <!-- Slide 2: Modern Urban Wear & Footwear -->
                 <div class="hero-slide">
-                    <img src="image/banner-hero-2.jpg" alt="Trendora Modern Streetwear Edit" class="hero-bg-img">
+                    <img src="image/banner-hero-2.jpg" alt="Trendora Urban Streetwear & Footwear" class="hero-bg-img">
                     <div class="hero-overlay"></div>
                     <div class="hero-caption">
                         <span class="hero-pill">NEW SEASON ARRIVALS</span>
-                        <h1 class="hero-title">URBAN STYLES<br>& SNEAKERS</h1>
-                        <p class="hero-subtitle">PREMIUM FABRICS, TIMELESS CUTS, ELEVATED EVERYDAY WEAR</p>
+                        <h1 class="hero-title">URBAN STYLES<br>&amp; FOOTWEAR</h1>
+                        <p class="hero-subtitle">PREMIUM FABRICS, CHIC DRESSES, CASUAL SHIRTS &amp; SNEAKERS</p>
+                        <!-- [CSS FLEXBOX] Hero Call-to-Actions -->
                         <div class="hero-cta-group">
-                            <a href="#products" class="btn-primary" data-category="Men">SHOP MEN â†’</a>
-                            <a href="#products" class="btn-secondary" data-category="Women">SHOP WOMEN â†’</a>
+                            <a href="#products" class="btn-primary" data-category="Men">SHOP MEN →</a>
+                            <a href="#products" class="btn-secondary" data-category="Women">SHOP WOMEN →</a>
                         </div>
                     </div>
                 </div>
             </div>
 
             <!-- Carousel Controls -->
-            <button class="slider-arrow prev" id="sliderPrev" aria-label="Previous Slide">â€¹</button>
-            <button class="slider-arrow next" id="sliderNext" aria-label="Next Slide">â€º</button>
+            <button class="slider-arrow prev" id="sliderPrev" aria-label="Previous Slide">‹</button>
+            <button class="slider-arrow next" id="sliderNext" aria-label="Next Slide">›</button>
             <div class="slider-dots" id="sliderDots">
                 <span class="dot active" data-slide="0"></span>
                 <span class="dot" data-slide="1"></span>
             </div>
         </section>
 
-        <!-- BANK & TRUST STRIP -->
+        <!-- ==========================================================================
+             [CSS GRID] BANK & TRUST ASSURANCE STRIP (4-COLUMN GRID)
+             ========================================================================== -->
         <div class="trust-strip">
             <div class="trust-item">
-                <span class="trust-icon">ðŸ’³</span>
+                <span class="trust-icon">💳</span>
                 <div>
                     <strong>10% INSTANT DISCOUNT</strong>
-                    <small>On HDFC & ICICI Bank Credit Cards</small>
+                    <small>On Major Bank Credit &amp; Debit Cards</small>
                 </div>
             </div>
             <div class="trust-item">
-                <span class="trust-icon">ðŸ”„</span>
+                <span class="trust-icon">🔄</span>
                 <div>
                     <strong>14 DAYS EASY RETURN</strong>
-                    <small>Hassle-free doorstep pickup</small>
+                    <small>Hassle-free doorstep pickup &amp; exchange</small>
                 </div>
             </div>
             <div class="trust-item">
-                <span class="trust-icon">âœ¨</span>
+                <span class="trust-icon">✨</span>
                 <div>
                     <strong>100% ORIGINAL GUARANTEE</strong>
-                    <small>Directly sourced from verified brands</small>
+                    <small>Directly sourced from verified designer brands</small>
                 </div>
             </div>
             <div class="trust-item">
-                <span class="trust-icon">âš¡</span>
+                <span class="trust-icon">⚡</span>
                 <div>
-                    <strong>EXPRESS DELIVERY</strong>
-                    <small>Fast dispatch within 24 hours</small>
+                    <strong>EXPRESS 24H DISPATCH</strong>
+                    <small>Fast white-glove courier shipping</small>
                 </div>
             </div>
         </div>
 
-        <!-- QUICK SHOP BY CATEGORY -->
-        <section class="section category-section">
+        <!-- ==========================================================================
+             [CSS GRID] MEDAL WORTHY BRANDS / CRAZY DEALS
+             ========================================================================== -->
+        <section class="section deals-section">
             <div class="section-heading">
-                <div>
-                    <h2 class="title">EXPLORE BY CATEGORY</h2>
-                    <p class="subtitle">Handpicked collections crafted for your lifestyle</p>
-                </div>
+                <h2 class="title">MEDAL WORTHY BRANDS</h2>
+                <p class="subtitle">Biggest offers on your favorite fashion houses</p>
             </div>
 
+            <!-- [CSS GRID] 6-Column Deals Grid -->
+            <div class="deals-grid">
+                <div class="deal-card" onclick="setCategory('Men')">
+                    <div class="deal-header">
+                        <span class="brand-title">ROADSTER</span>
+                        <p class="deal-desc">Men's Casual Shirts</p>
+                    </div>
+                    <div class="deal-offer-strip">MIN. 50% OFF</div>
+                </div>
+
+                <div class="deal-card" onclick="setCategory('Women')">
+                    <div class="deal-header">
+                        <span class="brand-title">ANOUK &amp; KALINI</span>
+                        <p class="deal-desc">Kurtas &amp; Silk Sarees</p>
+                    </div>
+                    <div class="deal-offer-strip">40 - 70% OFF</div>
+                </div>
+
+                <div class="deal-card" onclick="setCategory('Women')">
+                    <div class="deal-header">
+                        <span class="brand-title">DRESSBERRY</span>
+                        <p class="deal-desc">Floral Summer Dresses</p>
+                    </div>
+                    <div class="deal-offer-strip">STARTING ₹899</div>
+                </div>
+
+                <div class="deal-card" onclick="setCategory('Footwear')">
+                    <div class="deal-header">
+                        <span class="brand-title">HRX &amp; CARLTON</span>
+                        <p class="deal-desc">Sneakers &amp; Heels</p>
+                    </div>
+                    <div class="deal-offer-strip">FLAT 50% OFF</div>
+                </div>
+
+                <div class="deal-card" onclick="setCategory('Accessories')">
+                    <div class="deal-header">
+                        <span class="brand-title">MANGO &amp; FOSSIL</span>
+                        <p class="deal-desc">Handbags &amp; Watches</p>
+                    </div>
+                    <div class="deal-offer-strip">MIN. 40% OFF</div>
+                </div>
+
+                <div class="deal-card" onclick="setCategory('Beauty')">
+                    <div class="deal-header">
+                        <span class="brand-title">DERMA GLOW</span>
+                        <p class="deal-desc">Radiant Face Serums</p>
+                    </div>
+                    <div class="deal-offer-strip">BUY 1 GET 1 FREE</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             [CSS GRID] SHOP BY CATEGORY SECTION (CLEAR MEN & WOMEN SECTIONS)
+             ========================================================================== -->
+        <section class="section category-section">
+            <div class="section-heading">
+                <h2 class="title">EXPLORE BY CATEGORY</h2>
+                <p class="subtitle">Handpicked collections crafted for Men, Women &amp; Lifestyle</p>
+            </div>
+
+            <!-- [CSS GRID] Category Grid -->
             <div class="category-grid">
                 <div class="category-card" data-category="Men">
                     <div class="cat-img-box">
@@ -208,55 +285,66 @@
 
                 <div class="category-card" data-category="Women">
                     <div class="cat-img-box">
-                        <img src="image/cat-women.jpg" alt="Women's Fashion" loading="lazy">
+                        <img src="image/cat-women.jpg" alt="Women's Ethnic Kurta" loading="lazy">
                     </div>
-                    <h3 class="cat-name">Women's Wear</h3>
+                    <h3 class="cat-name">Women's Ethnic</h3>
                     <span class="cat-offer">40 - 70% Off</span>
+                </div>
+
+                <div class="category-card" data-category="Women">
+                    <div class="cat-img-box">
+                        <img src="image/p2-women-dress.jpg" alt="Western Dresses" loading="lazy">
+                    </div>
+                    <h3 class="cat-name">Western Wear</h3>
+                    <span class="cat-offer">Up to 60% Off</span>
                 </div>
 
                 <div class="category-card" data-category="Footwear">
                     <div class="cat-img-box">
-                        <img src="image/cat-footwear.jpg" alt="Footwear & Sneakers" loading="lazy">
+                        <img src="image/cat-footwear.jpg" alt="Footwear & Heels" loading="lazy">
                     </div>
                     <h3 class="cat-name">Footwear</h3>
-                    <span class="cat-offer">Up to 60% Off</span>
+                    <span class="cat-offer">Flat 50% Off</span>
                 </div>
 
                 <div class="category-card" data-category="Accessories">
                     <div class="cat-img-box">
-                        <img src="image/cat-accessories.jpg" alt="Bags & Accessories" loading="lazy">
+                        <img src="image/cat-accessories.jpg" alt="Handbags & Totes" loading="lazy">
                     </div>
-                    <h3 class="cat-name">Handbags & Belts</h3>
-                    <span class="cat-offer">Flat 50% Off</span>
+                    <h3 class="cat-name">Handbags &amp; Belts</h3>
+                    <span class="cat-offer">Min. 40% Off</span>
                 </div>
 
                 <div class="category-card" data-category="Accessories">
                     <div class="cat-img-box">
                         <img src="image/cat-watches.jpg" alt="Watches & Eyewear" loading="lazy">
                     </div>
-                    <h3 class="cat-name">Watches</h3>
-                    <span class="cat-offer">Starting â‚¹1,299</span>
+                    <h3 class="cat-name">Watches &amp; Shades</h3>
+                    <span class="cat-offer">From ₹1,299</span>
                 </div>
 
                 <div class="category-card" data-category="Beauty">
                     <div class="cat-img-box">
                         <img src="image/cat-beauty.jpg" alt="Beauty & Skincare" loading="lazy">
                     </div>
-                    <h3 class="cat-name">Beauty & Glow</h3>
-                    <span class="cat-offer">Buy 1 Get 1 Free</span>
+                    <h3 class="cat-name">Beauty &amp; Glow</h3>
+                    <span class="cat-offer">BOGO Free</span>
                 </div>
             </div>
         </section>
 
-        <!-- MAIN PRODUCTS CATALOG SECTION -->
+        <!-- ==========================================================================
+             MAIN PRODUCTS CATALOG SECTION (FLEXBOX CONTROLS + CSS GRID CATALOG)
+             ========================================================================== -->
         <section class="section products-section" id="products">
+            <!-- [CSS FLEXBOX] Products Header & Sorting -->
             <div class="products-header">
                 <div class="header-left">
                     <h2 class="title" id="productsSectionTitle">TRENDING NOW</h2>
-                    <span class="product-count-badge" id="productCountBadge">12 Styles Available</span>
+                    <span class="product-count-badge" id="productCountBadge">14 Styles Available</span>
                 </div>
 
-                <!-- Sort & View Controls -->
+                <!-- [CSS FLEXBOX] Sorting Controls -->
                 <div class="controls-right">
                     <label for="sortSelect" class="sort-label">Sort by:</label>
                     <div class="select-wrapper">
@@ -271,50 +359,56 @@
                 </div>
             </div>
 
-            <!-- Filter Chips Bar -->
+            <!-- [CSS FLEXBOX] Filter Chips Bar -->
             <div class="filter-chips" id="filterChips">
                 <button class="chip active" data-filter="All">All Items</button>
-                <button class="chip" data-filter="Men">Men</button>
-                <button class="chip" data-filter="Women">Women</button>
+                <button class="chip" data-filter="Men">Men's Wear</button>
+                <button class="chip" data-filter="Women">Women's Wear</button>
                 <button class="chip" data-filter="Footwear">Footwear</button>
-                <button class="chip" data-filter="Accessories">Accessories</button>
-                <button class="chip" data-filter="Beauty">Beauty</button>
+                <button class="chip" data-filter="Accessories">Accessories &amp; Watches</button>
+                <button class="chip" data-filter="Beauty">Beauty &amp; Skincare</button>
             </div>
 
-            <!-- PRODUCT GRID -->
+            <!-- [CSS GRID] Product Listing Grid (Responsive 4-column Myntra style) -->
             <div class="product-grid" id="productGrid">
-                <!-- Injected dynamically via script.js -->
+                <!-- Dynamically populated via script.js -->
             </div>
 
-            <!-- Empty State for Search / Filter -->
+            <!-- Empty Search State -->
             <div class="empty-state" id="emptyState" hidden>
-                <div class="empty-icon">ðŸ”</div>
+                <div class="empty-icon">🔍</div>
                 <h3>We couldn't find any matches</h3>
                 <p>Try searching with another keyword or reset the category filters.</p>
                 <button class="btn-primary" id="resetFilterBtn">View All Products</button>
             </div>
         </section>
 
-        <!-- VALUE PROPOSITION BANNER -->
+        <!-- ==========================================================================
+             VALUE PROPOSITION & PROMO COUPON BANNER
+             ========================================================================== -->
         <section class="promo-strip">
             <div class="promo-content">
                 <span class="badge-tag">TRENDORA PERKS</span>
-                <h2>Flat â‚¹500 OFF + Free Shipping on your first order</h2>
+                <h2>Flat ₹500 OFF + Free Shipping on your first order</h2>
                 <p>Sign up now or apply coupon code at checkout to claim your welcome gift.</p>
-                <button class="btn-dark" onclick="copyCouponCode('TREND500')">Copy Code: TREND500 ðŸ“‹</button>
+                <button class="btn-dark" onclick="copyCouponCode('TREND500')">Copy Code: TREND500 📋</button>
             </div>
         </section>
     </main>
 
-    <!-- FOOTER -->
+    <!-- ==========================================================================
+         [CSS GRID + FLEXBOX] MAIN FOOTER (MYNTRA CLEAN STYLE)
+         ========================================================================== -->
     <footer class="main-footer">
+        <!-- [CSS GRID] 4 Footer Columns -->
         <div class="footer-container">
             <div class="footer-col">
                 <a href="#top" class="brand-logo footer-logo">
                     <span class="logo-mark">T</span>
                     <span class="logo-text">TRENDORA</span>
                 </a>
-                <p class="footer-desc">Your ultimate destination for fashion, style, and everyday lifestyle essentials. Crafted with premium quality and curated for you.</p>
+                <p class="footer-desc">Your ultimate destination for fashion, style, authentic Indian wear, and everyday lifestyle essentials. Crafted with premium quality and curated for you.</p>
+                <!-- [CSS FLEXBOX] Social Links -->
                 <div class="social-links">
                     <span>Instagram</span>
                     <span>Facebook</span>
@@ -326,11 +420,12 @@
             <div class="footer-col">
                 <h4>ONLINE SHOPPING</h4>
                 <ul>
-                    <li><a href="#products" data-category="Men">Men's Apparel</a></li>
-                    <li><a href="#products" data-category="Women">Women's Wear</a></li>
-                    <li><a href="#products" data-category="Footwear">Footwear Collection</a></li>
-                    <li><a href="#products" data-category="Accessories">Watches & Bags</a></li>
-                    <li><a href="#products" data-category="Beauty">Beauty & Skincare</a></li>
+                    <li><a href="#products" data-category="Men">Men's Shirts &amp; Jackets</a></li>
+                    <li><a href="#products" data-category="Women">Women's Kurtas &amp; Sarees</a></li>
+                    <li><a href="#products" data-category="Women">Western Dresses &amp; Tops</a></li>
+                    <li><a href="#products" data-category="Footwear">Sneakers &amp; Block Heels</a></li>
+                    <li><a href="#products" data-category="Accessories">Leather Handbags &amp; Watches</a></li>
+                    <li><a href="#products" data-category="Beauty">Beauty &amp; Glow Skincare</a></li>
                 </ul>
             </div>
 
@@ -338,33 +433,37 @@
                 <h4>CUSTOMER POLICIES</h4>
                 <ul>
                     <li><a href="javascript:void(0)" onclick="showToast('Contact Us: support@trendora.in')">Contact Us</a></li>
-                    <li><a href="javascript:void(0)" onclick="showToast('FAQ: Orders usually dispatch in 24 hrs')">FAQ</a></li>
-                    <li><a href="javascript:void(0)" onclick="showToast('T&C: Transparent pricing & easy shopping')">Terms & Conditions</a></li>
-                    <li><a href="javascript:void(0)" onclick="showToast('Track Order: Check your SMS/email for tracking')">Track Orders</a></li>
-                    <li><a href="javascript:void(0)" onclick="showToast('Returns: 14-day hassle-free doorstep returns')">Returns & Exchanges</a></li>
+                    <li><a href="javascript:void(0)" onclick="showToast('Orders usually dispatch within 24 hours')">FAQ &amp; Shipping</a></li>
+                    <li><a href="javascript:void(0)" onclick="showToast('Transparent pricing &amp; verified reviews')">Terms &amp; Conditions</a></li>
+                    <li><a href="javascript:void(0)" onclick="showToast('Track order: Check SMS or email for link')">Track Consignment</a></li>
+                    <li><a href="javascript:void(0)" onclick="showToast('14-day doorstep returns &amp; exchanges')">Returns &amp; Exchanges</a></li>
                 </ul>
             </div>
 
             <div class="footer-col">
                 <h4>EXPERIENCE TRENDORA APP</h4>
-                <p class="app-note">Shop on the go with real-time tracking and exclusive early-access sales.</p>
+                <p class="app-note">Shop on the go with real-time tracking, runaway alerts, and exclusive early access sales.</p>
+                <!-- [CSS FLEXBOX] App Store Badges -->
                 <div class="download-badges">
-                    <button class="store-badge" onclick="showToast('App Store download coming soon!')">ðŸ App Store</button>
-                    <button class="store-badge" onclick="showToast('Google Play download coming soon!')">â–¶ Google Play</button>
+                    <button class="store-badge" onclick="showToast('App Store download coming soon!')">🍎 App Store</button>
+                    <button class="store-badge" onclick="showToast('Google Play download coming soon!')">▶ Google Play</button>
                 </div>
                 <div class="guarantee-box">
-                    <span>ðŸ›¡ï¸ <b>100% SECURE</b> checkout with 256-bit SSL encryption.</span>
+                    <span>🛡️ <b>100% ORIGINAL GUARANTEE</b> for all products at trendora.in</span>
                 </div>
             </div>
         </div>
 
+        <!-- [CSS FLEXBOX] Footer Bottom Bar -->
         <div class="footer-bottom">
-            <p>Â© 2026 Trendora Fashion Pvt Ltd. All rights reserved.</p>
+            <p>© 2026 Trendora Fashion Pvt Ltd. All rights reserved.</p>
             <p>Designed for realistic, intuitive, and modern e-commerce shopping experience.</p>
         </div>
     </footer>
 
-    <!-- SLIDE-OVER CART / BAG DRAWER -->
+    <!-- ==========================================================================
+         [CSS FLEXBOX] SLIDE-OVER CART / SHOPPING BAG DRAWER
+         ========================================================================== -->
     <div class="drawer-backdrop" id="cartBackdrop"></div>
     <aside class="cart-drawer" id="cartDrawer" aria-label="Shopping Bag">
         <div class="drawer-header">
@@ -372,25 +471,25 @@
                 <h3>Shopping Bag</h3>
                 <span class="drawer-count" id="drawerCartCount">(0 items)</span>
             </div>
-            <button class="close-drawer-btn" id="closeCartBtn" aria-label="Close Shopping Bag">âœ•</button>
+            <button class="close-drawer-btn" id="closeCartBtn" aria-label="Close Shopping Bag">✕</button>
         </div>
 
-        <!-- Cart Items List -->
+        <!-- Cart Items List Container -->
         <div class="drawer-body" id="cartItemsList">
             <!-- Dynamically populated via script.js -->
         </div>
 
-        <!-- Cart Summary / Footer -->
+        <!-- Cart Summary / Bill Details -->
         <div class="drawer-footer" id="cartFooter">
-            <!-- Coupon Code Section -->
+            <!-- Coupon Code Input -->
             <div class="coupon-section">
                 <div class="coupon-input-group">
-                    <input type="text" id="couponInput" placeholder="Enter Coupon Code (TREND500)" uppercase>
+                    <input type="text" id="couponInput" placeholder="Enter Coupon Code (TREND500)">
                     <button id="applyCouponBtn">APPLY</button>
                 </div>
                 <div class="applied-coupon-tag" id="appliedCouponTag" hidden>
-                    <span>Coupon <b>TREND500</b> applied (-â‚¹500)</span>
-                    <button id="removeCouponBtn">âœ•</button>
+                    <span>Coupon <b>TREND500</b> applied (-₹500)</span>
+                    <button id="removeCouponBtn">✕</button>
                 </div>
             </div>
 
@@ -398,15 +497,15 @@
             <div class="bill-details">
                 <div class="bill-row">
                     <span>Total MRP</span>
-                    <span id="billTotalMrp">â‚¹0</span>
+                    <span id="billTotalMrp">₹0</span>
                 </div>
                 <div class="bill-row">
                     <span>Discount on MRP</span>
-                    <span class="text-green" id="billDiscount">- â‚¹0</span>
+                    <span class="text-green" id="billDiscount">- ₹0</span>
                 </div>
                 <div class="bill-row" id="billCouponRow" hidden>
                     <span>Coupon Discount</span>
-                    <span class="text-green" id="billCoupon">- â‚¹0</span>
+                    <span class="text-green" id="billCoupon">- ₹0</span>
                 </div>
                 <div class="bill-row">
                     <span>Convenience Fee</span>
@@ -415,15 +514,17 @@
                 <div class="bill-divider"></div>
                 <div class="bill-row total-row">
                     <span>Total Amount</span>
-                    <strong id="billFinalTotal">â‚¹0</strong>
+                    <strong id="billFinalTotal">₹0</strong>
                 </div>
             </div>
 
-            <button class="btn-checkout" id="checkoutBtn">PLACE ORDER â†’</button>
+            <button class="btn-checkout" id="checkoutBtn">PLACE ORDER →</button>
         </div>
     </aside>
 
-    <!-- WISHLIST MODAL -->
+    <!-- ==========================================================================
+         [CSS FLEXBOX] SLIDE-OVER WISHLIST DRAWER
+         ========================================================================== -->
     <div class="drawer-backdrop" id="wishlistBackdrop"></div>
     <aside class="cart-drawer wishlist-drawer" id="wishlistDrawer" aria-label="Wishlist">
         <div class="drawer-header">
@@ -431,26 +532,30 @@
                 <h3>My Wishlist</h3>
                 <span class="drawer-count" id="drawerWishlistCount">(0 items)</span>
             </div>
-            <button class="close-drawer-btn" id="closeWishlistBtn" aria-label="Close Wishlist">âœ•</button>
+            <button class="close-drawer-btn" id="closeWishlistBtn" aria-label="Close Wishlist">✕</button>
         </div>
         <div class="drawer-body" id="wishlistItemsList">
             <!-- Dynamically populated via script.js -->
         </div>
     </aside>
 
-    <!-- QUICK VIEW PRODUCT MODAL -->
+    <!-- ==========================================================================
+         [CSS GRID + FLEXBOX] QUICK VIEW PRODUCT PREVIEW MODAL
+         ========================================================================== -->
     <div class="modal-backdrop" id="quickViewBackdrop"></div>
     <div class="quickview-modal" id="quickViewModal">
-        <button class="modal-close-btn" id="closeQuickViewBtn" aria-label="Close preview">âœ•</button>
+        <button class="modal-close-btn" id="closeQuickViewBtn" aria-label="Close preview">✕</button>
         <div class="modal-content" id="quickViewContent">
             <!-- Injected dynamically -->
         </div>
     </div>
 
-    <!-- ORDER SUCCESS CONFIRMATION MODAL -->
+    <!-- ==========================================================================
+         [CSS FLEXBOX] ORDER SUCCESS CONFIRMATION MODAL
+         ========================================================================== -->
     <div class="modal-backdrop" id="orderSuccessBackdrop"></div>
     <div class="success-modal" id="orderSuccessModal">
-        <div class="success-icon">âœ“</div>
+        <div class="success-icon">✓</div>
         <h2>Order Confirmed!</h2>
         <p>Thank you for shopping with <b>Trendora</b>. Your order has been placed successfully and will be delivered within 2-3 business days.</p>
         <div class="order-details-box" id="successOrderDetails"></div>
@@ -463,4 +568,3 @@
     <script src="script.js"></script>
 </body>
 </html>
-

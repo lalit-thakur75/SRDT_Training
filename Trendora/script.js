@@ -1,16 +1,17 @@
-﻿/**
- * TRENDORA â€” ONLINE FASHION STORE
- * Pure Vanilla JavaScript (No frameworks, clean & easy to understand)
+/**
+ * TRENDORA — ONLINE FASHION STORE
+ * Pure Vanilla JavaScript (Clean, simple, modular & beginner-friendly)
  */
 
 // ==========================================================================
-// 1. PRODUCT DATABASE (REAL FASHION ITEMS)
+// 1. PRODUCT DATABASE (100% ACCURATE IMAGE FILENAMES & FASHION CATALOG)
+// All image filenames strictly match their visual content in image/ folder
 // ==========================================================================
 const PRODUCTS = [
     {
         id: 1,
         brand: 'ROADSTER',
-        name: 'Pure Cotton Casual Checked Shirt',
+        name: 'Men Pure Cotton Casual Checked Oxford Shirt',
         category: 'Men',
         price: 799,
         oldPrice: 1999,
@@ -22,22 +23,35 @@ const PRODUCTS = [
     },
     {
         id: 2,
+        brand: 'KALINI',
+        name: 'Royal Peacock Blue & Gold Zari Silk Saree',
+        category: 'Women',
+        price: 1499,
+        oldPrice: 3999,
+        rating: 4.6,
+        ratingCount: '2.1k',
+        badge: 'FESTIVE EDIT',
+        image: 'p1-women-saree.jpg',
+        sizes: ['Free Size']
+    },
+    {
+        id: 3,
         brand: 'DRESSBERRY',
-        name: 'Floral Print Tiered A-Line Midi Dress',
+        name: 'Blush Pink Floral Tiered A-Line Midi Dress',
         category: 'Women',
         price: 1199,
         oldPrice: 2499,
         rating: 4.5,
-        ratingCount: '1.8k',
+        ratingCount: '2.4k',
         badge: 'TRENDING',
         image: 'p2-women-dress.jpg',
         sizes: ['XS', 'S', 'M', 'L']
     },
     {
-        id: 3,
+        id: 4,
         brand: 'HRX BY HRITHIK',
-        name: 'Men Chunky Lifestyle Sneakers',
-        category: 'Footwear',
+        name: 'Men Chunky Lifestyle Running Sneakers',
+        category: 'Men',
         price: 1499,
         oldPrice: 3499,
         rating: 4.3,
@@ -47,87 +61,139 @@ const PRODUCTS = [
         sizes: ['UK 7', 'UK 8', 'UK 9', 'UK 10']
     },
     {
-        id: 4,
+        id: 5,
         brand: 'ANOUK',
-        name: 'Embroidered Threadwork Anarkali Kurta',
+        name: 'Pastel Mint Green Embroidered Kurta Set',
         category: 'Women',
         price: 1399,
-        oldPrice: 3199,
-        rating: 4.4,
-        ratingCount: '950',
-        badge: 'FESTIVE PICK',
+        oldPrice: 3299,
+        rating: 4.5,
+        ratingCount: '980',
+        badge: 'BESTSELLER',
         image: 'p4-women-kurta.jpg',
         sizes: ['S', 'M', 'L', 'XL', 'XXL']
     },
     {
-        id: 5,
+        id: 6,
         brand: 'HIGHLANDER',
-        name: 'Men Washed Denim Trucker Jacket',
+        name: 'Men Washed Classic Denim Trucker Jacket',
         category: 'Men',
         price: 1699,
         oldPrice: 3999,
-        rating: 4.2,
+        rating: 4.4,
         ratingCount: '1.2k',
-        badge: 'SUPER SAVER',
+        badge: 'HOT TREND',
         image: 'p5-men-jacket.jpg',
-        sizes: ['M', 'L', 'XL']
+        sizes: ['S', 'M', 'L', 'XL']
     },
     {
-        id: 6,
+        id: 7,
+        brand: 'ROADSTER JEANS',
+        name: 'Men Washed Slim Fit Casual Denim Jeans',
+        category: 'Men',
+        price: 1299,
+        oldPrice: 2799,
+        rating: 4.2,
+        ratingCount: '850',
+        badge: 'SUPER SAVER',
+        image: 'p5-men-jeans.jpg',
+        sizes: ['30', '32', '34', '36']
+    },
+    {
+        id: 8,
+        brand: 'ROADSTER WOMAN',
+        name: 'Women Cropped Light-Wash Denim Trucker Jacket',
+        category: 'Women',
+        price: 1599,
+        oldPrice: 3499,
+        rating: 4.4,
+        ratingCount: '1.1k',
+        badge: 'TRENDING',
+        image: 'p5-women-jacket.jpg',
+        sizes: ['XS', 'S', 'M', 'L']
+    },
+    {
+        id: 9,
         brand: 'DERMA GLOW',
-        name: '10% Vitamin C Radiant Face Serum (30ml)',
+        name: '10% Vitamin C Radiant Face Glow Serum (30ml)',
         category: 'Beauty',
         price: 549,
-        oldPrice: 899,
-        rating: 4.6,
+        oldPrice: 999,
+        rating: 4.7,
         ratingCount: '4.5k',
         badge: 'TOP RATED',
         image: 'p6-beauty-serum.jpg',
         sizes: ['30 ml']
     },
     {
-        id: 7,
+        id: 10,
+        brand: 'BOBBI GLOW',
+        name: 'Professional Nude Eyeshadow & Cheek Makeup Palette',
+        category: 'Beauty',
+        price: 899,
+        oldPrice: 1899,
+        rating: 4.6,
+        ratingCount: '1.7k',
+        badge: 'BESTSELLER',
+        image: 'p6-beauty-makeup.jpg',
+        sizes: ['Universal']
+    },
+    {
+        id: 11,
         brand: 'MANGO',
-        name: 'Structured Faux Leather Shoulder Tote Bag',
-        category: 'Accessories',
+        name: 'Structured Cognac Tan Faux-Leather Shoulder Tote',
+        category: 'Women',
         price: 1899,
-        oldPrice: 3799,
-        rating: 4.4,
+        oldPrice: 3899,
+        rating: 4.5,
         ratingCount: '820',
-        badge: 'LUXE',
+        badge: 'LUXE EDIT',
         image: 'p7-women-handbag.jpg',
         sizes: ['Regular']
     },
     {
-        id: 8,
+        id: 12,
         brand: 'FOSSIL',
-        name: 'Men Minimalist Black Dial Leather Watch',
-        category: 'Accessories',
-        price: 2999,
-        oldPrice: 6995,
-        rating: 4.7,
+        name: 'Men Chronograph Brown Leather Strap Analog Watch',
+        category: 'Men',
+        price: 2499,
+        oldPrice: 5995,
+        rating: 4.8,
         ratingCount: '2.8k',
         badge: 'PREMIUM',
         image: 'p8-men-watch.jpg',
         sizes: ['Free Size']
     },
     {
-        id: 9,
+        id: 13,
+        brand: 'AURELIE',
+        name: 'Women Minimalist Rose-Gold Mesh Strap Watch',
+        category: 'Women',
+        price: 1999,
+        oldPrice: 4599,
+        rating: 4.7,
+        ratingCount: '1.6k',
+        badge: 'ELEGANCE',
+        image: 'p8-women-watch.jpg',
+        sizes: ['Free Size']
+    },
+    {
+        id: 14,
         brand: 'CARLTON LONDON',
-        name: 'Women Solid Pointed Toe Block Heel Pumps',
-        category: 'Footwear',
+        name: 'Rose Gold Strappy Block Heel Evening Sandals',
+        category: 'Women',
         price: 1299,
         oldPrice: 2990,
-        rating: 4.1,
+        rating: 4.3,
         ratingCount: '640',
         badge: 'STYLISH',
         image: 'p9-women-heels.jpg',
         sizes: ['UK 4', 'UK 5', 'UK 6', 'UK 7']
     },
     {
-        id: 10,
+        id: 15,
         brand: 'MAST & HARBOUR',
-        name: 'Oversized Heavyweight Cotton Graphic Tee',
+        name: 'Men Heavyweight Cotton Graphic Streetwear Tee',
         category: 'Men',
         price: 649,
         oldPrice: 1499,
@@ -138,22 +204,35 @@ const PRODUCTS = [
         sizes: ['S', 'M', 'L', 'XL']
     },
     {
-        id: 11,
+        id: 16,
         brand: 'ONLY',
-        name: 'Ribbed Knit Square Neck Fitted Crop Top',
+        name: 'Terracotta Rust Ribbed Knit Square Neck Crop Top',
         category: 'Women',
-        price: 599,
-        oldPrice: 1299,
-        rating: 4.2,
+        price: 649,
+        oldPrice: 1399,
+        rating: 4.3,
         ratingCount: '1.1k',
         badge: 'TRENDING',
         image: 'p11-women-top.jpg',
         sizes: ['XS', 'S', 'M', 'L']
     },
     {
-        id: 12,
+        id: 17,
+        brand: 'DRESSBERRY',
+        name: 'Women Pastel Chunky Lifestyle White & Blush Sneakers',
+        category: 'Women',
+        price: 1399,
+        oldPrice: 2999,
+        rating: 4.4,
+        ratingCount: '780',
+        badge: 'TRENDING',
+        image: 'p13-women-sneakers.jpg',
+        sizes: ['UK 4', 'UK 5', 'UK 6', 'UK 7']
+    },
+    {
+        id: 18,
         brand: 'VINCENZO',
-        name: 'Polarized Retro Square Tinted Sunglasses',
+        name: 'Polarized Retro Round Metal Frame Sunglasses',
         category: 'Accessories',
         price: 849,
         oldPrice: 2199,
@@ -161,7 +240,7 @@ const PRODUCTS = [
         ratingCount: '1.4k',
         badge: 'HOT',
         image: 'p12-sunglasses.jpg',
-        sizes: ['Free Size']
+        sizes: ['Universal']
     }
 ];
 
@@ -176,21 +255,22 @@ let currentSort = 'recommended';
 let appliedCoupon = null;
 let toastTimeout = null;
 
-// Currency Formatter
-const formatPrice = (amount) => 'â‚¹' + amount.toLocaleString('en-IN');
+// Currency & discount helpers
+const formatPrice = (amount) => 'Rs. ' + amount.toLocaleString('en-IN');
 const calculateDiscount = (price, oldPrice) => Math.round(((oldPrice - price) / oldPrice) * 100);
 
-// Save State to Local Storage
+// Save persistent cart & wishlist to LocalStorage
 function saveState() {
     localStorage.setItem('trendora_cart', JSON.stringify(cart));
     localStorage.setItem('trendora_wishlist', JSON.stringify(Array.from(wishlist)));
 }
 
 // ==========================================================================
-// 3. TOAST NOTIFICATION
+// 3. TOAST NOTIFICATION UTILITY
 // ==========================================================================
 function showToast(message) {
     const toast = document.getElementById('toastSnackbar');
+    if (!toast) return;
     toast.textContent = message;
     toast.classList.add('show');
     clearTimeout(toastTimeout);
@@ -199,13 +279,17 @@ function showToast(message) {
     }, 2400);
 }
 
-// Copy Coupon Code helper
+// Copy Coupon Code Helper
 function copyCouponCode(code) {
-    navigator.clipboard.writeText(code).then(() => {
-        showToast(`Coupon code ${code} copied!`);
-    }).catch(() => {
+    if (navigator.clipboard) {
+        navigator.clipboard.writeText(code).then(() => {
+            showToast(`Coupon code ${code} copied!`);
+        }).catch(() => {
+            showToast(`Coupon code is: ${code}`);
+        });
+    } else {
         showToast(`Coupon code is: ${code}`);
-    });
+    }
 }
 
 // ==========================================================================
@@ -213,7 +297,23 @@ function copyCouponCode(code) {
 // ==========================================================================
 function getFilteredAndSortedProducts() {
     let list = PRODUCTS.filter(product => {
-        const matchesCategory = activeCategory === 'All' || product.category === activeCategory;
+        let matchesCategory = false;
+        if (activeCategory === 'All') {
+            matchesCategory = true;
+        } else if (activeCategory === 'Men') {
+            matchesCategory = product.category === 'Men';
+        } else if (activeCategory === 'Women') {
+            matchesCategory = product.category === 'Women';
+        } else if (activeCategory === 'Footwear') {
+            matchesCategory = product.image.includes('sneakers') || product.image.includes('heels');
+        } else if (activeCategory === 'Accessories') {
+            matchesCategory = product.category === 'Accessories' || product.image.includes('watch') || product.image.includes('handbag') || product.image.includes('sunglasses');
+        } else if (activeCategory === 'Beauty') {
+            matchesCategory = product.category === 'Beauty';
+        } else {
+            matchesCategory = product.category === activeCategory;
+        }
+
         const matchesSearch = (product.name + ' ' + product.brand + ' ' + product.category)
             .toLowerCase()
             .includes(searchQuery);
@@ -239,59 +339,80 @@ function renderProducts() {
     const countBadge = document.getElementById('productCountBadge');
     const sectionTitle = document.getElementById('productsSectionTitle');
 
+    if (!grid) return;
+
     const filtered = getFilteredAndSortedProducts();
 
-    // Update title & count
-    sectionTitle.textContent = activeCategory === 'All' ? 'TRENDING NOW' : `${activeCategory.toUpperCase()} COLLECTION`;
-    countBadge.textContent = `${filtered.length} Styles Available`;
+    // Update section title & count badge
+    if (sectionTitle) {
+        if (activeCategory === 'All') {
+            sectionTitle.textContent = 'TRENDING NOW';
+        } else if (activeCategory === 'Men') {
+            sectionTitle.textContent = "MEN'S COLLECTION";
+        } else if (activeCategory === 'Women') {
+            sectionTitle.textContent = "WOMEN'S COLLECTION";
+        } else {
+            sectionTitle.textContent = `${activeCategory.toUpperCase()} COLLECTION`;
+        }
+    }
+    if (countBadge) {
+        countBadge.textContent = `${filtered.length} Styles Available`;
+    }
 
     if (filtered.length === 0) {
         grid.innerHTML = '';
-        emptyState.hidden = false;
+        if (emptyState) emptyState.hidden = false;
         return;
     }
 
-    emptyState.hidden = true;
+    if (emptyState) emptyState.hidden = true;
 
+    // Render cards using modern CSS Flexbox inside each CSS Grid cell
     grid.innerHTML = filtered.map(product => {
         const isWishlisted = wishlist.has(product.id);
         const discountPct = calculateDiscount(product.price, product.oldPrice);
 
         return `
             <article class="product-card" data-product-id="${product.id}">
+                <!-- Card Media Container with Quick View Trigger -->
                 <div class="card-media" onclick="openQuickView(${product.id})">
                     <img src="image/${product.image}" alt="${product.name}" loading="lazy">
                     
                     <span class="tag-badge">${product.badge}</span>
                     
+                    <!-- [CSS FLEXBOX] Rating Badge on bottom-left of image -->
                     <div class="rating-pill">
                         <span>${product.rating}</span>
-                        <span class="rating-star">â˜…</span>
+                        <span class="rating-star">★</span>
                         <span class="rating-count">${product.ratingCount}</span>
                     </div>
 
+                    <!-- Top-Right Wishlist Heart Button -->
                     <button 
                         class="wishlist-icon-btn ${isWishlisted ? 'active' : ''}" 
                         data-wishlist="${product.id}"
                         aria-label="Wishlist item"
                         onclick="event.stopPropagation(); toggleWishlist(${product.id});"
                     >
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="${isWishlisted ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="2">
                             <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
                         </svg>
                     </button>
                 </div>
 
+                <!-- [CSS FLEXBOX] Card Details -->
                 <div class="card-details">
                     <h3 class="card-brand">${product.brand}</h3>
                     <p class="card-title" title="${product.name}">${product.name}</p>
                     
+                    <!-- [CSS FLEXBOX] Pricing Row -->
                     <div class="card-price-row">
                         <span class="current-price">${formatPrice(product.price)}</span>
                         <span class="original-price">${formatPrice(product.oldPrice)}</span>
                         <span class="discount-percent">(${discountPct}% OFF)</span>
                     </div>
 
+                    <!-- [CSS FLEXBOX] Hover Action Row -->
                     <div class="card-hover-actions">
                         <div class="sizes-row">
                             <span>Sizes:</span>
@@ -307,7 +428,7 @@ function renderProducts() {
     }).join('');
 }
 
-// Filter category changer
+// Category filter switcher
 function setCategory(categoryName) {
     activeCategory = categoryName;
 
@@ -316,7 +437,7 @@ function setCategory(categoryName) {
         item.classList.toggle('active', item.dataset.category === activeCategory);
     });
 
-    // Update Chips Active State
+    // Update Category Chips Active State
     document.querySelectorAll('#filterChips .chip').forEach(chip => {
         chip.classList.toggle('active', chip.dataset.filter === activeCategory);
     });
@@ -336,7 +457,7 @@ function toggleWishlist(productId) {
         showToast(`Removed "${product.name.slice(0, 24)}..." from Wishlist`);
     } else {
         wishlist.add(productId);
-        showToast(`Added "${product.name.slice(0, 24)}..." to Wishlist â™¡`);
+        showToast(`Added "${product.name.slice(0, 24)}..." to Wishlist ♡`);
     }
 
     saveState();
@@ -349,13 +470,15 @@ function updateWishlistUI() {
     const drawerCount = document.getElementById('drawerWishlistCount');
     const listContainer = document.getElementById('wishlistItemsList');
 
-    badge.textContent = wishlist.size;
-    drawerCount.textContent = `(${wishlist.size} items)`;
+    if (badge) badge.textContent = wishlist.size;
+    if (drawerCount) drawerCount.textContent = `(${wishlist.size} items)`;
+
+    if (!listContainer) return;
 
     if (wishlist.size === 0) {
         listContainer.innerHTML = `
             <div class="drawer-empty">
-                <div class="drawer-empty-icon">â™¡</div>
+                <div class="drawer-empty-icon">♡</div>
                 <h4>Your Wishlist is Empty</h4>
                 <p>Explore items and tap the heart icon to save what you love.</p>
             </div>
@@ -392,6 +515,7 @@ function moveWishlistToBag(productId) {
     if (!product) return;
     addToCart(productId, product.sizes[0]);
     toggleWishlist(productId);
+    openCartDrawer();
 }
 
 // ==========================================================================
@@ -416,7 +540,7 @@ function addToCart(productId, size = null) {
 
     saveState();
     updateCartUI();
-    showToast(`Added ${product.brand} (${chosenSize}) to your bag ðŸ›ï¸`);
+    showToast(`Added ${product.brand} (${chosenSize}) to your bag 🛍️`);
 }
 
 function handleQuickAdd(productId) {
@@ -427,7 +551,6 @@ function handleQuickAdd(productId) {
 }
 
 function removeFromCart(index) {
-    const item = cart[index];
     cart.splice(index, 1);
     saveState();
     updateCartUI();
@@ -452,22 +575,24 @@ function updateCartUI() {
     const cartFooter = document.getElementById('cartFooter');
 
     const totalQty = cart.reduce((sum, item) => sum + item.qty, 0);
-    countBadge.textContent = totalQty;
-    drawerCount.textContent = `(${totalQty} items)`;
+    if (countBadge) countBadge.textContent = totalQty;
+    if (drawerCount) drawerCount.textContent = `(${totalQty} items)`;
+
+    if (!itemsList) return;
 
     if (cart.length === 0) {
         itemsList.innerHTML = `
             <div class="drawer-empty">
-                <div class="drawer-empty-icon">ðŸ›ï¸</div>
+                <div class="drawer-empty-icon">🛍️</div>
                 <h4>Your Bag is Empty</h4>
                 <p>There is nothing in your bag. Let's add some items!</p>
             </div>
         `;
-        cartFooter.hidden = true;
+        if (cartFooter) cartFooter.hidden = true;
         return;
     }
 
-    cartFooter.hidden = false;
+    if (cartFooter) cartFooter.hidden = false;
 
     // Render Items
     itemsList.innerHTML = cart.map((item, index) => {
@@ -497,7 +622,7 @@ function updateCartUI() {
                         </div>
                     </div>
                 </div>
-                <button class="cart-item-remove" onclick="removeFromCart(${index})" title="Remove item">âœ•</button>
+                <button class="cart-item-remove" onclick="removeFromCart(${index})" title="Remove item">✕</button>
             </div>
         `;
     }).join('');
@@ -550,14 +675,14 @@ function applyCoupon() {
 
     if (code === 'TREND500') {
         if (sellingTotal < 1999) {
-            showToast('Minimum order value for TREND500 is â‚¹1,999');
+            showToast('Minimum order value for TREND500 is Rs. 1,999');
             return;
         }
         appliedCoupon = { code: 'TREND500', discount: 500 };
         document.getElementById('appliedCouponTag').hidden = false;
         input.value = '';
         updateCartUI();
-        showToast('Coupon TREND500 applied successfully! Saved â‚¹500 ðŸŽ‰');
+        showToast('Coupon TREND500 applied successfully! Saved Rs. 500 🎉');
     } else {
         showToast('Invalid coupon code. Try TREND500');
     }
@@ -584,13 +709,15 @@ function handleCheckout() {
     const itemsCount = cart.reduce((sum, i) => sum + i.qty, 0);
 
     const detailsBox = document.getElementById('successOrderDetails');
-    detailsBox.innerHTML = `
-        <div><b>Order ID:</b> #${orderId}</div>
-        <div><b>Total Paid:</b> ${totalAmount}</div>
-        <div><b>Items Count:</b> ${itemsCount} items</div>
-        <div><b>Payment:</b> Cash on Delivery / Prepaid Verified</div>
-        <div><b>Delivery Address:</b> Standard Express Shipping (2-3 Days)</div>
-    `;
+    if (detailsBox) {
+        detailsBox.innerHTML = `
+            <div><b>Order ID:</b> #${orderId}</div>
+            <div><b>Total Paid:</b> ${totalAmount}</div>
+            <div><b>Items Count:</b> ${itemsCount} items</div>
+            <div><b>Payment:</b> Cash on Delivery / Prepaid Verified</div>
+            <div><b>Delivery Address:</b> Standard Express Shipping (2-3 Days)</div>
+        `;
+    }
 
     document.getElementById('orderSuccessBackdrop').classList.add('active');
     document.getElementById('orderSuccessModal').classList.add('active');
@@ -614,6 +741,8 @@ function openQuickView(productId) {
     const discountPct = calculateDiscount(product.price, product.oldPrice);
 
     const container = document.getElementById('quickViewContent');
+    if (!container) return;
+
     container.innerHTML = `
         <div class="quickview-body">
             <div class="qv-media">
@@ -638,7 +767,7 @@ function openQuickView(productId) {
                 </div>
 
                 <div class="qv-pincode-box">
-                    <span>ðŸ“ <b>Check Delivery:</b> Enter 6-digit Pincode</span>
+                    <span>📍 <b>Check Delivery:</b> Enter 6-digit Pincode</span>
                     <div style="display: flex; gap: 8px; margin-top: 6px;">
                         <input type="text" maxlength="6" placeholder="e.g. 110001" style="padding: 6px 10px; border: 1px solid #ddd; border-radius: 4px; font-size: 12px; width: 120px;" id="pincodeInput">
                         <button class="store-badge" onclick="checkPincode()">CHECK</button>
@@ -648,10 +777,10 @@ function openQuickView(productId) {
 
                 <div style="display: flex; gap: 12px; margin-top: auto;">
                     <button class="btn-primary" style="flex: 1; justify-content: center;" id="qvAddBagBtn">
-                        ðŸ›ï¸ ADD TO BAG
+                        🛍️ ADD TO BAG
                     </button>
                     <button class="btn-secondary" style="color: var(--dark); border-color: var(--border-color);" onclick="toggleWishlist(${product.id})">
-                        â™¡ WISHLIST
+                        ♡ WISHLIST
                     </button>
                 </div>
             </div>
@@ -683,7 +812,8 @@ function checkPincode() {
     const input = document.getElementById('pincodeInput');
     const msg = document.getElementById('pincodeMsg');
     if (input.value.length === 6 && /^\d+$/.test(input.value)) {
-        msg.textContent = 'âœ“ Express delivery available within 48 hours!';
+        msg.textContent = '✓ Express delivery available within 48 hours!';
+        msg.style.color = '#03a685';
     } else {
         msg.textContent = 'Please enter a valid 6-digit postal code';
         msg.style.color = '#ff3f6c';
@@ -728,17 +858,20 @@ const slides = document.querySelectorAll('.hero-slide');
 const dots = document.querySelectorAll('.slider-dots .dot');
 
 function showHeroSlide(index) {
+    if (!slides.length) return;
     slides.forEach((s, idx) => s.classList.toggle('active', idx === index));
     dots.forEach((d, idx) => d.classList.toggle('active', idx === index));
     currentHeroSlide = index;
 }
 
 function nextHeroSlide() {
+    if (!slides.length) return;
     const next = (currentHeroSlide + 1) % slides.length;
     showHeroSlide(next);
 }
 
 function prevHeroSlide() {
+    if (!slides.length) return;
     const prev = (currentHeroSlide - 1 + slides.length) % slides.length;
     showHeroSlide(prev);
 }
@@ -759,25 +892,29 @@ document.addEventListener('DOMContentLoaded', () => {
     const searchInput = document.getElementById('searchInput');
     const searchClear = document.getElementById('searchClearBtn');
 
-    searchInput.addEventListener('input', (e) => {
-        searchQuery = e.target.value.trim().toLowerCase();
-        searchClear.classList.toggle('visible', searchQuery.length > 0);
-        renderProducts();
-    });
+    if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+            searchQuery = e.target.value.trim().toLowerCase();
+            if (searchClear) searchClear.classList.toggle('visible', searchQuery.length > 0);
+            renderProducts();
+        });
+    }
 
-    searchClear.addEventListener('click', () => {
-        searchInput.value = '';
-        searchQuery = '';
-        searchClear.classList.remove('visible');
-        renderProducts();
-        searchInput.focus();
-    });
+    if (searchClear) {
+        searchClear.addEventListener('click', () => {
+            searchInput.value = '';
+            searchQuery = '';
+            searchClear.classList.remove('visible');
+            renderProducts();
+            searchInput.focus();
+        });
+    }
 
     // Keyboard shortcut Ctrl+K / Cmd+K for search
     window.addEventListener('keydown', (e) => {
         if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
             e.preventDefault();
-            searchInput.focus();
+            if (searchInput) searchInput.focus();
         }
         if (e.key === 'Escape') {
             closeCartDrawer();
@@ -789,14 +926,17 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Sort Dropdown
-    document.getElementById('sortSelect').addEventListener('change', (e) => {
-        currentSort = e.target.value;
-        renderProducts();
-    });
+    const sortSelect = document.getElementById('sortSelect');
+    if (sortSelect) {
+        sortSelect.addEventListener('change', (e) => {
+            currentSort = e.target.value;
+            renderProducts();
+        });
+    }
 
     // Navigation Category Clicks
     document.querySelectorAll('#mainNav .nav-item').forEach(item => {
-        item.addEventListener('click', (e) => {
+        item.addEventListener('click', () => {
             if (item.dataset.category) {
                 setCategory(item.dataset.category);
             }
@@ -805,9 +945,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Mobile Hamburger
-    document.getElementById('mobileMenuBtn').addEventListener('click', () => {
-        document.getElementById('mainNav').classList.toggle('open');
-    });
+    const mobileBtn = document.getElementById('mobileMenuBtn');
+    if (mobileBtn) {
+        mobileBtn.addEventListener('click', () => {
+            document.getElementById('mainNav').classList.toggle('open');
+        });
+    }
 
     // Filter Chips
     document.querySelectorAll('#filterChips .chip').forEach(chip => {
@@ -820,58 +963,82 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.category-card').forEach(card => {
         card.addEventListener('click', () => {
             setCategory(card.dataset.category);
-            document.getElementById('products').scrollIntoView({ behavior: 'smooth' });
+            const prodEl = document.getElementById('products');
+            if (prodEl) prodEl.scrollIntoView({ behavior: 'smooth' });
         });
     });
 
     // Cart Drawer Triggers
-    document.getElementById('cartBtn').addEventListener('click', openCartDrawer);
-    document.getElementById('closeCartBtn').addEventListener('click', closeCartDrawer);
-    document.getElementById('cartBackdrop').addEventListener('click', closeCartDrawer);
+    const cartBtn = document.getElementById('cartBtn');
+    const closeCartBtn = document.getElementById('closeCartBtn');
+    const cartBackdrop = document.getElementById('cartBackdrop');
+    if (cartBtn) cartBtn.addEventListener('click', openCartDrawer);
+    if (closeCartBtn) closeCartBtn.addEventListener('click', closeCartDrawer);
+    if (cartBackdrop) cartBackdrop.addEventListener('click', closeCartDrawer);
 
     // Wishlist Drawer Triggers
-    document.getElementById('wishlistBtn').addEventListener('click', openWishlistDrawer);
-    document.getElementById('closeWishlistBtn').addEventListener('click', closeWishlistDrawer);
-    document.getElementById('wishlistBackdrop').addEventListener('click', closeWishlistDrawer);
-    document.getElementById('openWishlistFromMenu').addEventListener('click', openWishlistDrawer);
+    const wishlistBtn = document.getElementById('wishlistBtn');
+    const closeWishlistBtn = document.getElementById('closeWishlistBtn');
+    const wishlistBackdrop = document.getElementById('wishlistBackdrop');
+    const openWishlistFromMenu = document.getElementById('openWishlistFromMenu');
+    if (wishlistBtn) wishlistBtn.addEventListener('click', openWishlistDrawer);
+    if (closeWishlistBtn) closeWishlistBtn.addEventListener('click', closeWishlistDrawer);
+    if (wishlistBackdrop) wishlistBackdrop.addEventListener('click', closeWishlistDrawer);
+    if (openWishlistFromMenu) openWishlistFromMenu.addEventListener('click', openWishlistDrawer);
 
     // Quick View Triggers
-    document.getElementById('closeQuickViewBtn').addEventListener('click', closeQuickView);
-    document.getElementById('quickViewBackdrop').addEventListener('click', closeQuickView);
+    const closeQuickViewBtn = document.getElementById('closeQuickViewBtn');
+    const quickViewBackdrop = document.getElementById('quickViewBackdrop');
+    if (closeQuickViewBtn) closeQuickViewBtn.addEventListener('click', closeQuickView);
+    if (quickViewBackdrop) quickViewBackdrop.addEventListener('click', closeQuickView);
 
     // Coupon Triggers
-    document.getElementById('applyCouponBtn').addEventListener('click', applyCoupon);
-    document.getElementById('removeCouponBtn').addEventListener('click', removeCoupon);
+    const applyCouponBtn = document.getElementById('applyCouponBtn');
+    const removeCouponBtn = document.getElementById('removeCouponBtn');
+    if (applyCouponBtn) applyCouponBtn.addEventListener('click', applyCoupon);
+    if (removeCouponBtn) removeCouponBtn.addEventListener('click', removeCoupon);
 
     // Checkout Trigger
-    document.getElementById('checkoutBtn').addEventListener('click', handleCheckout);
+    const checkoutBtn = document.getElementById('checkoutBtn');
+    if (checkoutBtn) checkoutBtn.addEventListener('click', handleCheckout);
 
     // Order Success Continue Shopping
-    document.getElementById('continueShoppingBtn').addEventListener('click', () => {
-        document.getElementById('orderSuccessBackdrop').classList.remove('active');
-        document.getElementById('orderSuccessModal').classList.remove('active');
-    });
+    const continueShoppingBtn = document.getElementById('continueShoppingBtn');
+    if (continueShoppingBtn) {
+        continueShoppingBtn.addEventListener('click', () => {
+            document.getElementById('orderSuccessBackdrop').classList.remove('active');
+            document.getElementById('orderSuccessModal').classList.remove('active');
+        });
+    }
 
     // Reset Filter Button
-    document.getElementById('resetFilterBtn').addEventListener('click', () => {
-        searchInput.value = '';
-        searchQuery = '';
-        searchClear.classList.remove('visible');
-        setCategory('All');
-    });
+    const resetFilterBtn = document.getElementById('resetFilterBtn');
+    if (resetFilterBtn) {
+        resetFilterBtn.addEventListener('click', () => {
+            if (searchInput) searchInput.value = '';
+            searchQuery = '';
+            if (searchClear) searchClear.classList.remove('visible');
+            setCategory('All');
+        });
+    }
 
     // Hero Slider Controls
-    document.getElementById('sliderNext').addEventListener('click', () => {
-        clearInterval(heroInterval);
-        nextHeroSlide();
-        heroInterval = setInterval(nextHeroSlide, 6000);
-    });
-
-    document.getElementById('sliderPrev').addEventListener('click', () => {
-        clearInterval(heroInterval);
-        prevHeroSlide();
-        heroInterval = setInterval(nextHeroSlide, 6000);
-    });
+    const sliderNext = document.getElementById('sliderNext');
+    const sliderPrev = document.getElementById('sliderPrev');
+    if (sliderNext) {
+        sliderNext.addEventListener('click', () => {
+            clearInterval(heroInterval);
+            nextHeroSlide();
+            heroInterval = setInterval(nextHeroSlide, 6000);
+        });
+    }
+    if (sliderPrev) {
+        sliderPrev.addEventListener('click', () => {
+            clearInterval(heroInterval);
+            prevHeroSlide();
+            heroInterval = setInterval(nextHeroSlide, 6000);
+        });
+    }
 
     dots.forEach(dot => {
         dot.addEventListener('click', () => {
@@ -881,4 +1048,3 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
-
